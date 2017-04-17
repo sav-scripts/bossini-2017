@@ -306,22 +306,19 @@ div{
     }
 }
 
-/* index */
-#index {
+/* background */
+#background{
 
     .container-pc();
 
     .fullsize-video{
 
-        /* Make video to at least 100% wide and tall */
         min-width: 100%;
         min-height: 100%;
 
-        /* Setting width & height to auto prevents the browser from stretching or squishing the video */
         width: auto;
         height: auto;
 
-        /* Center the video */
         position: absolute;
         top: 50%;
         left: 50%;
@@ -337,7 +334,6 @@ div{
         }
     }
 
-
     .cover{
         position: fixed;
         left:0;
@@ -348,11 +344,16 @@ div{
         background-color: #000000;
         opacity: .45;
     }
+}
+
+
+/* index */
+#index {
 
     .content{
         .percent-container(@left: 50%; @top: 50%;);
 
-        .layout-pc('index.m.jpg');
+        .layout-pc('index.jpg');
 
 //        .percent-div(left-text-1, -572, -57, 174, 161, 'index-left-text-1.png');
         .left-text-1{
@@ -447,5 +448,99 @@ div{
     }
 
 }
+
+/* publish */
+#publish {
+
+    .percent-container(@left: 50%; @top: 50%;);
+    .layout-pc('publish.jpg');
+
+    .abs-div-2(basement, -431, -223, 855, 480, 'publish-basement.png');
+
+    .btn-upload{
+        .abs-div-2(none, 9, 81, 350, 41, 'publish-btn-upload.png');
+        cursor: pointer;
+        &:active{
+            margin-top: 1px;
+        }
+    }
+
+    .btn-send{
+        .abs-div-2(none, 9, 150, 350, 41, 'publish-btn-send.png');
+        cursor: pointer;
+        &:active{
+            margin-top: 1px;
+        }
+    }
+
+    .work-container{
+        @work-width: 350px;
+        @work-height: 350px;
+        @canvas-width: 600px;
+        @canvas-height: 600px;
+
+        position: absolute;
+        left:-370px;
+        top: -158px;
+        width: @work-width;
+        height: @work-height;
+        background-color: #e2e2e2;
+
+
+    }
+
+    .text-input{
+        position: absolute;
+        left: 9px;
+        top: -84px;
+        width: 326px;
+        height: 101px;
+
+        border: 1px solid #4db847;
+
+        resize: none;
+
+        .default-font(20px, black);
+
+        line-height: 24px;
+
+        padding: 5px 10px;
+
+        &.hint-mode{
+            color: #cccccc;
+        }
+    }
+
+    .color-block-1, .color-block-2, .color-block-3{
+        position: absolute;
+        width: 113px;
+        height: 15px;
+        border: 1px solid #deefdd;
+        top:39px;
+
+        cursor: pointer;
+
+        &.focus-mode{
+            border: 1px solid #4db847;
+        }
+    }
+
+    .color-block-1{
+        left: 9px;
+        background-color: white;
+    }
+
+    .color-block-2{
+        left: 127px;
+        background-color: #858585;
+    }
+
+    .color-block-3{
+        left: 244px;
+        background-color: #000000;
+    }
+
+}
+
 
 @import 'main-mobile.less';

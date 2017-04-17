@@ -324,33 +324,30 @@ div.disactivated {
 #menu .icon:hover .bar-3 {
   left: 18px;
 }
-/* index */
-#index {
+/* background */
+#background {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
 }
-#index .fullsize-video {
-  /* Make video to at least 100% wide and tall */
+#background .fullsize-video {
   min-width: 100%;
   min-height: 100%;
-  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
   width: auto;
   height: auto;
-  /* Center the video */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
 }
-#index .fullsize-video.playing-mode {
+#background .fullsize-video.playing-mode {
   transition: opacity, 2s, ease-in;
   opacity: 1;
 }
-#index .cover {
+#background .cover {
   position: fixed;
   left: 0;
   top: 0;
@@ -359,6 +356,7 @@ div.disactivated {
   background-color: #000000;
   opacity: .45;
 }
+/* index */
 #index .content {
   position: absolute;
   width: 100px;
@@ -373,7 +371,7 @@ div.disactivated {
   top: -350%;
   width: 1200%;
   height: 700%;
-  background-image: url("../images/layouts/index.m.jpg");
+  background-image: url("../images/layouts/index.jpg");
   background-size: cover;
   opacity: 0.3;
 }
@@ -383,7 +381,7 @@ div.disactivated {
   top: -350%;
   width: 1200%;
   height: 700%;
-  background-image: url("../images/layouts/index.m.jpg");
+  background-image: url("../images/layouts/index.jpg");
   background-size: cover;
   opacity: 0.3;
 }
@@ -1473,6 +1471,128 @@ div.disactivated {
   background-size: auto;
   z-index: 2;
 }
+/* publish */
+#publish {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#publish .layout {
+  position: absolute;
+  left: -600%;
+  top: -350%;
+  width: 1200%;
+  height: 700%;
+  background-image: url("../images/layouts/publish.jpg");
+  background-size: cover;
+  opacity: 0.3;
+}
+#publish .layout {
+  position: absolute;
+  left: -600%;
+  top: -350%;
+  width: 1200%;
+  height: 700%;
+  background-image: url("../images/layouts/publish.jpg");
+  background-size: cover;
+  opacity: 0.3;
+}
+#publish .basement {
+  position: absolute;
+  left: -431px;
+  top: -223px;
+  width: 855px;
+  height: 480px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/publish-basement.png");
+  background-size: auto;
+}
+#publish .btn-upload {
+  position: absolute;
+  left: 9px;
+  top: 81px;
+  width: 350px;
+  height: 41px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/publish-btn-upload.png");
+  background-size: auto;
+  cursor: pointer;
+}
+#publish .btn-upload:active {
+  margin-top: 1px;
+}
+#publish .btn-send {
+  position: absolute;
+  left: 9px;
+  top: 150px;
+  width: 350px;
+  height: 41px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/publish-btn-send.png");
+  background-size: auto;
+  cursor: pointer;
+}
+#publish .btn-send:active {
+  margin-top: 1px;
+}
+#publish .work-container {
+  position: absolute;
+  left: -370px;
+  top: -158px;
+  width: 350px;
+  height: 350px;
+  background-color: #e2e2e2;
+}
+#publish .text-input {
+  position: absolute;
+  left: 9px;
+  top: -84px;
+  width: 326px;
+  height: 101px;
+  border: 1px solid #4db847;
+  resize: none;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 20px;
+  color: black;
+  line-height: 24px;
+  padding: 5px 10px;
+}
+#publish .text-input.hint-mode {
+  color: #cccccc;
+}
+#publish .color-block-1,
+#publish .color-block-2,
+#publish .color-block-3 {
+  position: absolute;
+  width: 113px;
+  height: 15px;
+  border: 1px solid #deefdd;
+  top: 39px;
+  cursor: pointer;
+}
+#publish .color-block-1.focus-mode,
+#publish .color-block-2.focus-mode,
+#publish .color-block-3.focus-mode {
+  border: 1px solid #4db847;
+}
+#publish .color-block-1 {
+  left: 9px;
+  background-color: white;
+}
+#publish .color-block-2 {
+  left: 127px;
+  background-color: #858585;
+}
+#publish .color-block-3 {
+  left: 244px;
+  background-color: #000000;
+}
 @media (max-width: 640px) {
   body {
     min-width: inherit;
@@ -1514,15 +1634,15 @@ div.disactivated {
     right: 20px;
     top: 14px;
   }
-  /* index */
-  #index .backgrounds {
+  /* background */
+  #background .backgrounds {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
   }
-  #index .backgrounds .bg-1 {
+  #background .backgrounds .bg-1 {
     position: absolute;
     left: 0;
     top: 0;
@@ -1533,10 +1653,10 @@ div.disactivated {
     background-position: center center;
     visibility: hidden;
   }
-  #index .backgrounds .bg-1.top-mode {
+  #background .backgrounds .bg-1.top-mode {
     z-index: 10;
   }
-  #index .backgrounds .bg-2 {
+  #background .backgrounds .bg-2 {
     position: absolute;
     left: 0;
     top: 0;
@@ -1547,10 +1667,10 @@ div.disactivated {
     background-position: center center;
     visibility: hidden;
   }
-  #index .backgrounds .bg-2.top-mode {
+  #background .backgrounds .bg-2.top-mode {
     z-index: 10;
   }
-  #index .backgrounds .bg-3 {
+  #background .backgrounds .bg-3 {
     position: absolute;
     left: 0;
     top: 0;
@@ -1561,10 +1681,10 @@ div.disactivated {
     background-position: center center;
     visibility: hidden;
   }
-  #index .backgrounds .bg-3.top-mode {
+  #background .backgrounds .bg-3.top-mode {
     z-index: 10;
   }
-  #index .backgrounds .bg-4 {
+  #background .backgrounds .bg-4 {
     position: absolute;
     left: 0;
     top: 0;
@@ -1575,10 +1695,10 @@ div.disactivated {
     background-position: center center;
     visibility: hidden;
   }
-  #index .backgrounds .bg-4.top-mode {
+  #background .backgrounds .bg-4.top-mode {
     z-index: 10;
   }
-  #index .backgrounds .bg-5 {
+  #background .backgrounds .bg-5 {
     position: absolute;
     left: 0;
     top: 0;
@@ -1589,12 +1709,13 @@ div.disactivated {
     background-position: center center;
     visibility: hidden;
   }
-  #index .backgrounds .bg-5.top-mode {
+  #background .backgrounds .bg-5.top-mode {
     z-index: 10;
   }
-  #index .fullsize-video {
+  #background .fullsize-video {
     display: none;
   }
+  /* index */
   #index .content {
     position: absolute;
     width: 100px;

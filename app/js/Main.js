@@ -10,7 +10,7 @@
 
             useFakeData: false,
 
-            fb_appid: "",
+            fb_appid: "261350167604180",
             fbPermissions: [],
 
             fbToken: null,
@@ -33,7 +33,8 @@
 
         hashArray:
         [
-            "/Index"
+            "/Index",
+            "/Publish"
         ],
 
         defaultHash: "/Index",
@@ -49,6 +50,7 @@
             window._CLICK_ = (self.settings.isiOS)? "touchend": "click";
 
             Menu.init();
+            BGManager.init();
 
             startApp();
 
@@ -96,6 +98,8 @@
         vp.index = obj.modeIndex;
         vp.width = width;
         vp.height = height;
+
+        //BGManager.resize();
 
         if(SceneHandler.currentScene && SceneHandler.currentScene.resize) SceneHandler.currentScene.resize();
     }
