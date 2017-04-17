@@ -1,0 +1,182 @@
+@import (reference) 'main.less';
+
+@mobile-width: 640px;
+@mobile-height: 950px;
+
+
+@media (max-width: @mobile-width) {
+
+
+    .layout-mobile(@image-src; @opacity: .3;){
+        .layout{
+            .percent-div(none, -@mobile-width*.5, -@mobile-height*.5, @mobile-width, @mobile-height, "layouts/@{image-src}");
+            opacity: @opacity;
+        }
+    }
+
+
+    body{
+        min-width: inherit;
+        min-height: inherit;
+
+    }
+
+    #scene-container{
+
+        height: 100%;
+        min-height: @mobile-height;
+
+        width: @mobile-width;
+
+    }
+
+    /* menu and statement */
+    #statement{
+
+        position: absolute;
+
+        right: 50%;
+        margin-right: -137px;
+
+        bottom: 5px;
+    }
+
+    #menu{
+
+        @bar-height: 77px;
+
+        transition: top .4s ease-out;
+
+        &.hide-mode{
+            top: -@bar-height;
+        }
+
+        .bar{
+            height: @bar-height;
+        }
+
+        .logo{
+            .abs-div-2(none, 30, 22, 190, 33, 'logo.m.png');
+        }
+
+        .icon{
+            right: 20px;
+            top: 14px;
+
+
+        }
+    }
+
+    /* index */
+    #index {
+
+        .backgrounds{
+            position: absolute;
+
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+
+            .my-mixin(1);
+            .my-mixin(2);
+            .my-mixin(3);
+            .my-mixin(4);
+            .my-mixin(5);
+
+            .my-mixin(@index;)
+            {
+                .bg-@{index}
+                {
+
+                    position: absolute;
+
+                    left: 0;
+                    top:0;
+                    width: 100%;
+                    height: 100%;
+
+                    .image-bg('index-bg-@{index}.m.jpg', cover);
+                    background-position: center center;
+
+                    visibility: hidden;
+
+                    &.top-mode{
+                        z-index: 10;
+                    }
+                }
+            }
+        }
+
+        .fullsize-video{
+            display: none;
+        }
+
+        .content{
+            .percent-container(@left: 50%; @top: 50%;);
+
+            .layout-mobile('index.m.jpg');
+
+            .percent-div(left-text-1, -144, -222, 276, 137, 'index-left-text-1.m.png');
+
+            .percent-div(right-text-1, -226, -60, 442, 77, 'index-right-text-1.png');
+
+            .percent-div(right-text-2, -190, 29, 370, 34, 'index-right-text-2.png');
+
+            .percent-div(right-text-3, -190, 80, 370, 56, 'index-right-text-3.m.png');
+
+
+            .left-text-1 div, .right-text-1 div, .right-text-2 div, .right-text-3 div{
+                display: none;
+            }
+
+            .btn-start{
+                .percent-div(none, -157, 157, 319, 74, 'index-btn-start.m.png');
+            }
+
+            .video-select{
+                .percent-container(@left: -125%; @top:272%;);
+
+                .arrow-left{
+                    .abs-div-2(none,-63, 33, 50, 80, "index-arrow-left.m.png");
+                }
+
+                .arrow-right{
+                    .abs-div-2(none,259, 33, 50, 80, "index-arrow-right.m.png");
+                }
+
+                .abs-div-2(right-text-4, 49, 154, 158, 22, "index-right-text-4.m.png");
+
+
+                @thumb-width: 246px;
+                @thumb-height: 140px;
+
+                .thumb-container{
+                    position: absolute;
+                    left:0;
+                    top:0;
+                    width: @thumb-width;
+                    height: @thumb-height;
+                    background-color: white;
+
+                    border:1px solid white;
+
+                    cursor: pointer;
+
+                    .thumb-1{
+                        .abs-div-2(none, 0, 0, @thumb-width, @thumb-height, "index-video-thumb-1.m.png");
+                        z-index: 1;
+                    }
+
+                    .video-play-icon{
+                        .abs-div-2(none, 0, 0, @thumb-width, @thumb-height, "index-video-play-icon.m.png");
+                        z-index: 2;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+}

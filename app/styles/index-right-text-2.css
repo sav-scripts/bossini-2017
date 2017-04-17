@@ -1,0 +1,105 @@
+.right-text-2{
+    width: 370px;
+    height: 34px;
+}
+
+.right-text-2 div{
+    position: absolute;
+    background-image: url(../images/index-right-text-2.png);
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(1){
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 34px;
+    background-position: 0 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(2){
+    left: 34px;
+    top: 0;
+    width: 31px;
+    height: 34px;
+    background-position: -34px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(3){
+    left: 67px;
+    top: 0;
+    width: 32px;
+    height: 34px;
+    background-position: -67px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(4){
+    left: 102px;
+    top: 0;
+    width: 4px;
+    height: 34px;
+    background-position: -102px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(5){
+    left: 112px;
+    top: 0;
+    width: 32px;
+    height: 34px;
+    background-position: -112px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(6){
+    left: 146px;
+    top: 0;
+    width: 30px;
+    height: 34px;
+    background-position: -146px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(7){
+    left: 190px;
+    top: 0;
+    width: 32px;
+    height: 34px;
+    background-position: -190px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(8){
+    left: 224px;
+    top: 0;
+    width: 33px;
+    height: 34px;
+    background-position: -224px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(9){
+    left: 259px;
+    top: 0;
+    width: 32px;
+    height: 34px;
+    background-position: -259px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(10){
+    left: 292px;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    background-position: -292px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(11){
+    left: 327px;
+    top: 0;
+    width: 33px;
+    height: 34px;
+    background-position: -327px 0;
+}
+
+.right-text-2 > row:nth-child(1) > div:nth-child(12){
+    left: 364px;
+    top: 0;
+    width: 6px;
+    height: 34px;
+    background-position: -364px 0;
+}

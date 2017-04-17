@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640">
+
+    <meta property="fb:app_id" content="xxx"/>
+    <meta property="og:title" content="xxx" />
+    <meta property="og:type" content="activity" />
+    <meta property="og:url" content="xxx" />
+    <meta property="og:description" content="xxx" />
+    <meta property="og:image" content="xxx" />
+
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body onload="Main.init();">
+
+    <script src="js/lib/SquareLoading.1.0.1.js"></script>
+    <script>
+
+        window.Loading = SquareLoading;
+        Loading.progress(0).show();
+
+    </script>
+
+
+    <div id="invisible-container"></div>
+    <div id="scene-container">
+
+
+        <div id="statement" class="hide-mode"></div>
+    </div>
+
+    <div id="menu" class="hide-mode">
+
+        <div class="open-part">
+
+            <div class="center-container">
+
+                <!--<div class="layout"></div>-->
+
+                <div class="green-line"></div>
+                <div class="deco-text-1"></div>
+
+                <div class="button-container">
+
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bar"></div>
+        <div class="logo"></div>
+        <div class="icon">
+            <div class="bar-1"></div>
+            <div class="bar-2"></div>
+            <div class="bar-3"></div>
+        </div>
+    </div>
+
+    <div id="fb-root"></div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/lib/jquery.1.11.3.min.js"><\/script>')</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/ModifiersPlugin.min.js"></script>
+
+    <!-- build:js js/optimized.js -->
+    <script src="js/lib/FBHelper.1.0.3.js"></script>
+    <script src="js/lib/Helper.1.0.4.js"></script>
+    <script src="js/lib/jquery.waitforimages.min.js"></script>
+    <script src="js/lib/ScalableContent.1.0.3.js"></script>
+    <script src="js/lib/SceneHandler.1.0.5.js"></script>
+    <script src="js/lib/Utility.0.0.15.js"></script>
+    <script src="js/Main.js"></script>
+    <script src="js/Menu.js"></script>
+    <script src="js/Index.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>

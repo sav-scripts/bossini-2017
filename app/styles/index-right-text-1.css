@@ -1,0 +1,57 @@
+.right-text-1{
+    width: 442px;
+    height: 77px;
+}
+
+.right-text-1 div{
+    position: absolute;
+    background-image: url(../images/index-right-text-1.png);
+}
+
+.right-text-1 > row:nth-child(1) > div:nth-child(1){
+    left: 1px;
+    top: 0;
+    width: 42px;
+    height: 77px;
+    background-position: -1px 0;
+}
+
+.right-text-1 > row:nth-child(1) > div:nth-child(2){
+    left: 48px;
+    top: 0;
+    width: 76px;
+    height: 77px;
+    background-position: -48px 0;
+}
+
+.right-text-1 > row:nth-child(1) > div:nth-child(3){
+    left: 127px;
+    top: 0;
+    width: 76px;
+    height: 77px;
+    background-position: -127px 0;
+}
+
+.right-text-1 > row:nth-child(1) > div:nth-child(4){
+    left: 208px;
+    top: 0;
+    width: 74px;
+    height: 77px;
+    background-position: -208px 0;
+}
+
+.right-text-1 > row:nth-child(1) > div:nth-child(5){
+    left: 289px;
+    top: 0;
+    width: 71px;
+    height: 77px;
+    background-position: -289px 0;
+}
+
+.right-text-1 > row:nth-child(1) > div:nth-child(6){
+    left: 368px;
+    top: 0;
+    width: 73px;
+    height: 77px;
+    background-position: -368px 0;
+}
