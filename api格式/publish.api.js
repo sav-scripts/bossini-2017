@@ -24,7 +24,9 @@ var send =
     "fb_token": "asdf89f79asfsdf678asf0sadfasf", // facebook access token
 
     "image_data": "somebase64string", // image data, base 64 string, jpeg 格式, 已去除開頭 "data:image/jpeg;base64," 字串,
-    "description": "一些人生感言" // 使用者輸入文字
+    "description": "一些人生感言", // 使用者輸入文字
+
+    "inform_allowed": 'false' // 使用者是否允許寄送電子優惠券, true/false
 };
 
 
