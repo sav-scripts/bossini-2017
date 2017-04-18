@@ -1,4 +1,93 @@
 /** common mixins **/
+/* .custom-checkbox */
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.custom-checkbox label {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.custom-checkbox label:after {
+  content: '';
+  width: 7px;
+  height: 4px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border: 2px solid #43ac8c;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.custom-checkbox label:hover::after {
+  opacity: 0;
+}
+.custom-checkbox input[type=checkbox] {
+  visibility: hidden;
+}
+.custom-checkbox input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+.custom-checkbox.no-style {
+  background: none;
+  border: none;
+}
+.custom-checkbox.no-style label {
+  display: none;
+}
+.custom-checkbox.no-style input[type=checkbox] {
+  visibility: visible;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+}
+@media (max-width: 640px) {
+  .custom-checkbox.big {
+    width: 41px;
+    height: 41px;
+  }
+  .custom-checkbox.big label {
+    width: 39px;
+    height: 39px;
+  }
+  .custom-checkbox.big label:after {
+    width: 23px;
+    height: 13px;
+    left: 7px;
+    top: 7px;
+    border: 6px solid #000000;
+    border-top: none;
+    border-right: none;
+  }
+  .custom-checkbox.middle {
+    width: 29px;
+    height: 29px;
+  }
+  .custom-checkbox.middle label {
+    width: 27px;
+    height: 27px;
+  }
+  .custom-checkbox.middle label:after {
+    width: 13px;
+    height: 7px;
+    left: 7px;
+    top: 7px;
+    border: 4px solid #000000;
+    border-top: none;
+    border-right: none;
+  }
+}
 html {
   padding: 0;
   margin: 0;
@@ -53,6 +142,12 @@ div.hidding {
 }
 div.disactivated {
   opacity: .5;
+}
+.test-canvas {
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
 }
 /* menu and statement */
 #statement {
@@ -276,10 +371,10 @@ div.disactivated {
 }
 #menu .logo {
   position: absolute;
-  left: 21px;
-  top: 18px;
-  width: 153px;
-  height: 26px;
+  left: 18px;
+  top: 11px;
+  width: 148px;
+  height: 41px;
   margin-left: 0px;
   margin-top: 0px;
   background-image: url("../images/logo.png");
@@ -1486,7 +1581,7 @@ div.disactivated {
   top: -350%;
   width: 1200%;
   height: 700%;
-  background-image: url("../images/layouts/publish.jpg");
+  background-image: url("../images/layouts/publish-form.jpg");
   background-size: cover;
   opacity: 0.3;
 }
@@ -1496,7 +1591,7 @@ div.disactivated {
   top: -350%;
   width: 1200%;
   height: 700%;
-  background-image: url("../images/layouts/publish.jpg");
+  background-image: url("../images/layouts/publish-form.jpg");
   background-size: cover;
   opacity: 0.3;
 }
@@ -1511,7 +1606,23 @@ div.disactivated {
   background-image: url("../images/publish-basement.png");
   background-size: auto;
 }
-#publish .btn-upload {
+#publish .work-part {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#publish .work-part .work-texts {
+  position: absolute;
+  left: 10px;
+  top: -158px;
+  width: 346px;
+  height: 299px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/publish-work-texts.png");
+  background-size: auto;
+}
+#publish .work-part .btn-upload {
   position: absolute;
   left: 9px;
   top: 81px;
@@ -1523,10 +1634,10 @@ div.disactivated {
   background-size: auto;
   cursor: pointer;
 }
-#publish .btn-upload:active {
+#publish .work-part .btn-upload:active {
   margin-top: 1px;
 }
-#publish .btn-send {
+#publish .work-part .btn-send {
   position: absolute;
   left: 9px;
   top: 150px;
@@ -1538,7 +1649,191 @@ div.disactivated {
   background-size: auto;
   cursor: pointer;
 }
-#publish .btn-send:active {
+#publish .work-part .btn-send:active {
+  margin-top: 1px;
+}
+#publish .work-part .text-input {
+  position: absolute;
+  left: 9px;
+  top: -84px;
+  width: 326px;
+  height: 101px;
+  border: 1px solid #697085;
+  resize: none;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 20px;
+  color: black;
+  line-height: 24px;
+  padding: 5px 10px;
+}
+#publish .work-part .text-input.hint-mode {
+  color: #cccccc;
+}
+#publish .work-part .color-block-1,
+#publish .work-part .color-block-2,
+#publish .work-part .color-block-3 {
+  position: absolute;
+  width: 113px;
+  height: 15px;
+  border: 1px solid #deefdd;
+  top: 39px;
+  cursor: pointer;
+}
+#publish .work-part .color-block-1.focus-mode,
+#publish .work-part .color-block-2.focus-mode,
+#publish .work-part .color-block-3.focus-mode {
+  border: 1px solid #4db847;
+}
+#publish .work-part .color-block-1 {
+  left: 9px;
+  background-color: white;
+}
+#publish .work-part .color-block-2 {
+  left: 127px;
+  background-color: #858585;
+}
+#publish .work-part .color-block-3 {
+  left: 244px;
+  background-color: #000000;
+}
+#publish .form-part {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#publish .form-part .form-texts {
+  position: absolute;
+  left: 10px;
+  top: -158px;
+  width: 356px;
+  height: 295px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/publish-form-texts.png");
+  background-size: auto;
+}
+#publish .form-part .field {
+  position: absolute;
+  height: 16px;
+  border: 1px solid #4db847;
+  background-color: white;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 14px;
+  color: #697085;
+  padding: 2px;
+}
+#publish .form-part .field-first-name {
+  left: 40px;
+  top: -121px;
+  width: 75px;
+}
+#publish .form-part .field-last-name {
+  left: 153px;
+  top: -121px;
+  width: 75px;
+}
+#publish .form-part .field-email {
+  left: 72px;
+  top: -84px;
+  width: 294px;
+}
+#publish .form-part .field-phone {
+  left: 88px;
+  top: -46px;
+  width: 278px;
+}
+#publish .form-part .field-address-detail {
+  left: 88px;
+  top: 27px;
+  width: 278px;
+}
+#publish .form-part select {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../images/select-arrow.png") no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  background-position: right 8px;
+  letter-spacing: 1px;
+  border: 1px solid #4db847;
+  height: 22px;
+  cursor: pointer;
+  text-align: center;
+  text-align-last: center;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 14px;
+  color: #697085;
+}
+#publish .form-part select option {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 14px;
+  color: black;
+  background: white;
+  text-align: center;
+  text-align-last: center;
+}
+#publish .form-part select optgroup {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 14px;
+  color: black;
+  background: white;
+  text-align: center;
+  text-align-last: center;
+}
+#publish .form-part select::-ms-expand {
+  display: none;
+}
+#publish .form-part select.white-mode {
+  color: white;
+}
+#publish .form-part .gender-select {
+  left: 286px;
+  top: -121px;
+  width: 86px;
+}
+#publish .form-part .address-county {
+  left: 88px;
+  top: -9px;
+  width: 135px;
+}
+#publish .form-part .address-zone {
+  left: 237px;
+  top: -9px;
+  width: 135px;
+}
+#publish .form-part .custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #4db847;
+}
+#publish .form-part .custom-checkbox label {
+  left: 3px;
+  top: 3px;
+}
+#publish .form-part .eula-checkbox {
+  position: absolute;
+  left: 12px;
+  top: 87px;
+}
+#publish .form-part .inform-checkbox {
+  position: absolute;
+  left: 12px;
+  top: 119px;
+}
+#publish .form-part .btn-send {
+  position: absolute;
+  left: 9px;
+  top: 150px;
+  width: 364px;
+  height: 41px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/publish-btn-send-2.png");
+  background-size: auto;
+  cursor: pointer;
+}
+#publish .form-part .btn-send:active {
   margin-top: 1px;
 }
 #publish .work-container {
@@ -1549,49 +1844,34 @@ div.disactivated {
   height: 350px;
   background-color: #e2e2e2;
 }
-#publish .text-input {
+#publish .work-container .image-input {
+  visibility: hidden;
+}
+#publish .work-container .raw-canvas {
   position: absolute;
-  left: 9px;
-  top: -84px;
-  width: 326px;
-  height: 101px;
-  border: 1px solid #4db847;
-  resize: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#publish .work-container .text-canvas {
+  position: absolute;
+  left: 15px;
+  top: 190px;
+  width: 320px;
+  height: 150px;
+}
+#publish .work-container .text-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: auto;
+  white-space: nowrap;
   font-family: '微軟正黑體', "Heiti TC", serif;
-  font-size: 20px;
+  font-size: 22px;
   color: black;
-  line-height: 24px;
-  padding: 5px 10px;
-}
-#publish .text-input.hint-mode {
-  color: #cccccc;
-}
-#publish .color-block-1,
-#publish .color-block-2,
-#publish .color-block-3 {
-  position: absolute;
-  width: 113px;
-  height: 15px;
-  border: 1px solid #deefdd;
-  top: 39px;
-  cursor: pointer;
-}
-#publish .color-block-1.focus-mode,
-#publish .color-block-2.focus-mode,
-#publish .color-block-3.focus-mode {
-  border: 1px solid #4db847;
-}
-#publish .color-block-1 {
-  left: 9px;
-  background-color: white;
-}
-#publish .color-block-2 {
-  left: 127px;
-  background-color: #858585;
-}
-#publish .color-block-3 {
-  left: 244px;
-  background-color: #000000;
+  line-height: 28px;
 }
 @media (max-width: 640px) {
   body {
@@ -1621,10 +1901,10 @@ div.disactivated {
   }
   #menu .logo {
     position: absolute;
-    left: 30px;
-    top: 22px;
-    width: 190px;
-    height: 33px;
+    left: 27px;
+    top: 18px;
+    width: 172px;
+    height: 47px;
     margin-left: 0px;
     margin-top: 0px;
     background-image: url("../images/logo.m.png");

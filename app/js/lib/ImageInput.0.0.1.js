@@ -17,7 +17,6 @@
         $(inputDom).on("change", function()
         {
             self.loadFile();
-
         });
     }
 
@@ -33,18 +32,21 @@
         {
             return _image;
         },
+
+        triggerInput: function()
+        {
+            this._inputDom.value = null;
+            this._inputDom.click();
+        },
         
         loadFile: function()
         {
-            //Loading.progress('empty').show();
-            
             var self = this;
             if(self._onLoadStart) self._onLoadStart.call();
     
             if (self._inputDom.files && self._inputDom.files[0])
             {
-    
-                //console.log(_imageInput.input.files[0].size);
+
                 var reader = new FileReader();
     
                 reader.onload = function (event)
@@ -58,23 +60,36 @@
     
         loadImg: function(src, cb)
         {
-            if(_image)
+            var self = this;
+
+            if(self._image)
             {
-                $(_image).detach();
-                _image = null;
+                $(self._image).detach();
+                self._image = null;
             }
-    
-            _image = document.createElement("img");
-    
-            _image.onload = function()
+
+            self._image = document.createElement("img");
+
+            self._image.onload = function()
             {
-                createCanvas(_image);
-    
-                if(cb) cb.call();
+                if(cb) cb.call(null, self._image);
             };
-    
-            _image.src = src;
+
+            self._image.src = src;
         }
-    }
+    };
+
+    ImageInput.imageToCanvas =  function(image)
+    {
+        var canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        var ctx = canvas.getContext('2d');
+
+        ctx.drawImage(image, 0, 0);
+
+        return canvas;
+    };
 
 }());

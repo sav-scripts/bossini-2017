@@ -5,16 +5,70 @@
         <!--<div class="layout"></div>-->
 
         <div class="basement"></div>
-        <div class="btn-upload"></div>
-        <div class="btn-send"></div>
 
-        <div class="work-container"></div>
+        <div class="work-part">
 
-        <textarea title='' class="text-input hint-mode">寫下並分享你的不停止宣言，最多30個字</textarea>
+            <div class="work-texts"></div>
 
-        <div class="color-block-1 focus-mode"></div>
-        <div class="color-block-2"></div>
-        <div class="color-block-3"></div>
+            <div class="btn-upload"></div>
+            <div class="btn-send"></div>
+
+            <textarea title='' class="text-input hint-mode" maxlength="50">寫下並分享你的不停止宣言，最多50個字</textarea>
+
+            <div class="color-block-1 color-block focus-mode"></div>
+            <div class="color-block-2 color-block"></div>
+            <div class="color-block-3 color-block"></div>
+
+        </div>
+
+        <div class="form-part">
+
+            <div class="form-texts"></div>
+            <div class="btn-send"></div>
+
+            <input class="field-first-name field" title="" maxlength="10">
+            <input class="field-last-name field" title="" maxlength="10">
+            <input class="field-phone field" title="" maxlength="10">
+            <input class="field-email field" title="" maxlength="100">
+            <input class="field-address-detail field" title="" maxlength="100">
+
+
+            <select class="gender-select" title="">
+                <option value="">選擇　</option>
+                <option value="female">女士　</option>
+                <option value="male">先生　</option>
+            </select>
+
+            <select class="address-county" title="">
+                <option value="">縣市　</option>
+            </select>
+
+            <select class="address-zone" title="">
+                <option value="">區域　</option>
+            </select>
+
+            <div class="eula-checkbox custom-checkbox">
+                <input type="checkbox" id="eula-checkbox" />
+                <label for="eula-checkbox"></label>
+            </div>
+
+            <div class="inform-checkbox custom-checkbox">
+                <input type="checkbox" id="inform-checkbox" />
+                <label for="inform-checkbox"></label>
+            </div>
+
+        </div>
+
+
+
+        <div class="work-container">
+
+            <input type="file" class="image-input" accept="image/*"/>
+
+            <canvas class="text-canvas"></canvas>
+            <!--<div class="text-holder">some test text</div>-->
+
+        </div>
 
     </div>
 </div>

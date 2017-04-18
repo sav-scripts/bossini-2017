@@ -44,7 +44,7 @@
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/zh_TW/sdk.js";
+            js.src = "//connect.facebook.net/zh_TW/sdk.js?v=1";
             fjs.parentNode.insertBefore(js, fjs);
 
             js.onerror = onError;
