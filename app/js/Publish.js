@@ -16,7 +16,8 @@
             textOffsetX: 0,
             textOffsetY: 0
         },
-        _textImageSrc = './misc/sample-1.png',
+        _firstImageSrc = './misc/sample-1.png',
+        _fixTexts = '#不停止，就是最好的超越。',
 
         _currentStep = 'work',
         _defaultStep = 'work',
@@ -101,13 +102,6 @@
         }
     };
 
-    function showContent()
-    {
-        var tl = new TimelineMax;
-        tl.set($doms.container, {autoAlpha: 0});
-        tl.to($doms.container, .4, {autoAlpha: 1});
-    }
-
     function build(templates)
     {
         $("#invisible-container").append(templates[0].dom);
@@ -119,7 +113,7 @@
             'form': self.FormPart.init($doms.container.find(".form-part"))
         };
 
-        $doms.workContainer = $doms.container.find('.work-container');
+        $doms.workContainer = $doms.container.find('.work-container').toggleClass("visible-mode", false);
 
         $doms.imageInput = $doms.container.find(".image-input");
 
@@ -130,6 +124,8 @@
         _imageInput = new ImageInput($doms.imageInput[0], function()
         {
             Loading.progress('載入圖片中').show();
+            $doms.workContainer.toggleClass("visible-mode", false);
+
         }, resetWorkingImage);
 
         $doms.btnUpload = $doms.container.find(".btn-upload").on(_CLICK_, function()
@@ -137,13 +133,9 @@
             _imageInput.triggerInput();
         });
 
-        $doms.btnSend = $doms.container.find(".btn-send").on(_CLICK_, function()
+        $doms.btnNextStep = $doms.container.find(".btn-next").on(_CLICK_, function()
         {
-            //getCombinedCanvas();
-
             var text = self.getInputText();
-
-            console.log(text);
 
             if(text == '')
             {
@@ -153,14 +145,27 @@
             {
                 self.toStep('form');
             }
-
         });
 
 
         $doms.textInput = $doms.container.find(".text-input");
         setupInput($doms.textInput);
 
-        _imageInput.loadImg(_textImageSrc, resetWorkingImage);
+        if(FBHelper._uid)
+        {
+            _firstImageSrc = 'http://graph.facebook.com/'+FBHelper._uid+'/picture?width=600&height=600';
+            _imageInput.loadImg(_firstImageSrc, resetWorkingImage);
+        }
+        else if(Main.testmode)
+        {
+            //console.log('using sample as default working image');
+            _imageInput.loadImg(_firstImageSrc, resetWorkingImage);
+        }
+        else
+        {
+            alert('need login facebook first');
+            SceneHandler.toHash("/Index");
+        }
 
 
         updateTextCanvas();
@@ -179,8 +184,8 @@
 
         ctx.drawImage(_textCanvas, _imageSettings.textOffsetX, _imageSettings.textOffsetY, _textCanvas.width, _textCanvas.height);
 
-        canvas.className = 'test-canvas';
-        $('body').append(canvas);
+        //canvas.className = 'test-canvas';
+        //$('body').append(canvas);
 
         return canvas;
     }
@@ -271,11 +276,11 @@
     {
 
         var text = $doms.textInput.val();
-        if(text === $doms.textInput.defaultText) return;
+
 
         var workRatio = _imageSettings.workRatio,
             fontFamily = $doms.textInput.css("font-family"),
-            fontSize = 28 / workRatio + 'px',
+            fontSize = 27 / workRatio + 'px',
             fontWeight = 'bold',
             lineHeight = 36 / workRatio;
 
@@ -288,11 +293,23 @@
         ctx.fillStyle = _fontColor;
         ctx.font = fontWeight + ' ' + fontSize + ' ' + fontFamily;
 
-        var lines = text.split('\n');
-        for(var i = 0;i < lines.length;i++)
+        if(text === $doms.textInput.defaultText)
+        {
+            printText(_fixTexts, 4);
+            return;
+        }
+
+
+        var lines = text.split('\n'),
+            n = lines.length;
+        if(n>3) n = 3;
+
+        for(var i = 0;i < n;i++)
         {
             printText(lines[i], i+1);
         }
+
+        printText(_fixTexts, 4);
 
         function printText(string, lineIndex)
         {
@@ -308,11 +325,12 @@
         if(_workingCanvas)
         {
             $(_workingCanvas).detach();
-            _workingCanvas = null;
         }
 
         _workingCanvas = CanvasUtils.imageToCanvas(image, _imageSettings.rawWidth, _imageSettings.rawHeight);
         _workingCanvas.className = 'raw-canvas';
+
+        $doms.workContainer.toggleClass("visible-mode", true);
 
         $doms.workContainer.prepend(_workingCanvas);
     }
@@ -328,10 +346,31 @@
         cb.apply();
     }
 
+    function showContent()
+    {
+        var tl = new TimelineMax;
+        tl.set($doms.container, {autoAlpha: 0});
+        tl.to($doms.container, .2, {autoAlpha: 1});
+
+        tl.set($doms.container, {transformPerspective: 600, marginLeft: 0, transformOrigin: 'center center', rotationY:-70, scale:.2}, 0);
+
+        tl.to($doms.container, 1, {rotationY: 0, scale: 1, ease:Power1.easeInOut}, 0);
+
+        tl.add(function()
+        {
+            $doms.container.css('transform', 'none');
+        });
+    }
+
     function hide(cb)
     {
         var tl = new TimelineMax;
-        tl.to($doms.container, .4, {autoAlpha: 0});
+
+        tl.set($doms.container, {transformPerspective: 900, transformOrigin: 'center center'});
+        tl.to($doms.container,1, {rotationY: 90, scale:.2, marginLeft: 400, ease:Power1.easeIn});
+        //tl.to($doms.container,.5, {marginLeft: 200, ease:Power1.easeInOut});
+
+        tl.to($doms.container, .3, {autoAlpha: 0}, "-=.3");
         tl.add(function ()
         {
             $doms.container.detach();

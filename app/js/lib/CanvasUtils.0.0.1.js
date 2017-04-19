@@ -31,7 +31,15 @@
             imgCV.height = img.height;
             var imgCtx = imgCV.getContext('2d');
             imgCtx.drawImage(img, 0, 0);
-            return CanvasUtils.downScaleCanvas(imgCV, scale, offsetX, offsetY, targetWidth, targetHeight);
+
+            if(img.width !== targetWidth || img.height !== targetHeight)
+            {
+                return CanvasUtils.downScaleCanvas(imgCV, scale, offsetX, offsetY, targetWidth, targetHeight);
+            }
+            else
+            {
+                return imgCV;
+            }
         },
 
         // scales the canvas by (float) scale < 1

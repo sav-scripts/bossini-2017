@@ -1,5 +1,6 @@
 @import "common-mixins.less";
 @import "misc.less";
+@import (inline) "simple_scroller.css";
 
 @background-color: black;
 
@@ -479,7 +480,7 @@ div{
             }
         }
 
-        .btn-send{
+        .btn-next{
             .abs-div-2(none, 9, 150, 350, 41, 'publish-btn-send.png');
             cursor: pointer;
             &:active{
@@ -560,13 +561,13 @@ div{
         }
 
         .field-first-name{
-            left: 40px;
+            left: 153px;
             top:-121px;
             width: 75px;
         }
 
         .field-last-name{
-            left: 153px;
+            left: 40px;
             top:-121px;
             width: 75px;
         }
@@ -711,6 +712,14 @@ div{
         height: @work-height;
         background-color: #e2e2e2;
 
+        opacity: 0;
+
+        transition: opacity .0s ease-out;
+
+        &.visible-mode{
+            transition: opacity .5s ease-out .3s;
+            opacity: 1;
+        }
 
         .raw-canvas{
             position: absolute;
@@ -745,5 +754,70 @@ div{
 
 }
 
+/** rule **/
+#rule{
+
+    .percent-container(@left: 50%; @top: 50%;);
+    .layout-pc("rule.jpg");
+
+    .basement{
+
+        .abs-div(-431,-224,855,480);
+
+        background-color:white;
+        border: 1px solid #666;
+
+        .title{
+            .abs-div(352,19,141,36);
+            .image-bg("rule-title.png");
+        }
+        .scroll-base{
+            .abs-div(810, 67, 27, 400);
+//            background-color: #fff7dc;
+        }
+
+        .content-container{
+            position: absolute;
+
+            left:42px;
+            top:67px;
+            width: 760px;
+            height: 400px;
+
+            //            background: rgba(0,0,0,.2);
+
+            .content{
+
+                position: relative;
+                width: 736px;
+//                height: 390px;
+                height: 390px * 2;
+
+                margin-top: 4px;
+
+                .image-bg("rule-content.png");
+
+                .unselectable();
+
+                overflow-y: auto;
+
+            }
+        }
+        .ss_scrollbase{
+            background: none;
+        }
+        .ss_scrollbar{
+
+            position: absolute;
+
+            .image-bg("rule-scrollbar.png");
+            width: 27px;
+            height: 126px;
+            margin-left: 0;
+            margin-top: 0;
+            background-color: transparent;
+        }
+    }
+}
 
 @import 'main-mobile.less';

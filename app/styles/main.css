@@ -88,6 +88,74 @@
     border-right: none;
   }
 }
+@charset "utf-8";
+/* CSS Document */
+.ss_dom{
+	position:absolute;
+}
+.ss_content{
+	position:absolute;
+}
+.ss_container{
+	position:absolute;
+	overflow:hidden;
+}
+.ss_scroll_container{
+	position:absolute;
+	width:30px;
+	/*background:#f00;*/
+}
+.ss_scrollbase{
+	position:absolute;
+	z-index:0;
+	left:50%;
+	width:1px;
+    background-color:#747474;
+}
+.ss_scrollbar_container{
+	position:absolute;
+	width:100%;
+	z-index:1;
+	cursor:pointer;
+}
+.ss_scrollbar{
+	position:absolute;
+	background:#747474;
+	left:50%;
+	width:7px;
+	margin-left:-3px;
+}
+.ss_scrollbar:hover, .ss_scrollbar.hover{
+	background: #9a9a9a;
+}
+.ss_button_up{
+	position:absolute;
+	background:url(UI.png);
+	width:20px;
+	margin-left:-10px;
+	left:50%;
+	height:30px;
+	margin-top:-30px;
+	cursor:pointer;
+	background-position:20px top;
+}
+.ss_button_up:hover{
+	background-position:20px bottom;
+}
+.ss_button_down{
+	position:absolute;
+	background:url(UI.png);
+	width:20px;
+	margin-left:-10px;
+	left:50%;
+	height:30px;
+	top:100%;
+	margin-top:0px;
+	cursor:pointer;
+}
+.ss_button_down:hover{
+	background-position:0px bottom;
+}
 html {
   padding: 0;
   margin: 0;
@@ -1637,7 +1705,7 @@ div.disactivated {
 #publish .work-part .btn-upload:active {
   margin-top: 1px;
 }
-#publish .work-part .btn-send {
+#publish .work-part .btn-next {
   position: absolute;
   left: 9px;
   top: 150px;
@@ -1649,7 +1717,7 @@ div.disactivated {
   background-size: auto;
   cursor: pointer;
 }
-#publish .work-part .btn-send:active {
+#publish .work-part .btn-next:active {
   margin-top: 1px;
 }
 #publish .work-part .text-input {
@@ -1723,12 +1791,12 @@ div.disactivated {
   padding: 2px;
 }
 #publish .form-part .field-first-name {
-  left: 40px;
+  left: 153px;
   top: -121px;
   width: 75px;
 }
 #publish .form-part .field-last-name {
-  left: 153px;
+  left: 40px;
   top: -121px;
   width: 75px;
 }
@@ -1843,9 +1911,15 @@ div.disactivated {
   width: 350px;
   height: 350px;
   background-color: #e2e2e2;
+  opacity: 0;
+  transition: opacity 0s ease-out;
 }
 #publish .work-container .image-input {
   visibility: hidden;
+}
+#publish .work-container.visible-mode {
+  transition: opacity 0.5s ease-out 0.3s;
+  opacity: 1;
 }
 #publish .work-container .raw-canvas {
   position: absolute;
@@ -1872,6 +1946,100 @@ div.disactivated {
   font-size: 22px;
   color: black;
   line-height: 28px;
+}
+/** rule **/
+#rule {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#rule .layout {
+  position: absolute;
+  left: -600%;
+  top: -350%;
+  width: 1200%;
+  height: 700%;
+  background-image: url("../images/layouts/rule.jpg");
+  background-size: cover;
+  opacity: 0.3;
+}
+#rule .layout {
+  position: absolute;
+  left: -600%;
+  top: -350%;
+  width: 1200%;
+  height: 700%;
+  background-image: url("../images/layouts/rule.jpg");
+  background-size: cover;
+  opacity: 0.3;
+}
+#rule .basement {
+  position: absolute;
+  left: -431px;
+  top: -224px;
+  width: 855px;
+  height: 480px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-color: white;
+  border: 1px solid #666;
+}
+#rule .basement .title {
+  position: absolute;
+  left: 352px;
+  top: 19px;
+  width: 141px;
+  height: 36px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/rule-title.png");
+  background-size: auto;
+}
+#rule .basement .scroll-base {
+  position: absolute;
+  left: 810px;
+  top: 67px;
+  width: 27px;
+  height: 400px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+#rule .basement .content-container {
+  position: absolute;
+  left: 42px;
+  top: 67px;
+  width: 760px;
+  height: 400px;
+}
+#rule .basement .content-container .content {
+  position: relative;
+  width: 736px;
+  height: 780px;
+  margin-top: 4px;
+  background-image: url("../images/rule-content.png");
+  background-size: auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-y: auto;
+}
+#rule .basement .ss_scrollbase {
+  background: none;
+}
+#rule .basement .ss_scrollbar {
+  position: absolute;
+  background-image: url("../images/rule-scrollbar.png");
+  background-size: auto;
+  width: 27px;
+  height: 126px;
+  margin-left: 0;
+  margin-top: 0;
+  background-color: transparent;
 }
 @media (max-width: 640px) {
   body {

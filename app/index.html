@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=640">
 
     <meta property="fb:app_id" content="xxx"/>
-    <meta property="og:title" content="xxx" />
-    <meta property="og:type" content="activity" />
-    <meta property="og:url" content="xxx" />
-    <meta property="og:description" content="xxx" />
-    <meta property="og:image" content="xxx" />
+    <!--<meta property="og:title" content="xxx" />-->
+    <!--<meta property="og:type" content="activity" />-->
+    <!--<meta property="og:url" content="xxx" />-->
+    <!--<meta property="og:description" content="xxx" />-->
+    <!--<meta property="og:image" content="xxx" />-->
 
     <link rel="stylesheet" href="styles/main.css">
 
@@ -89,6 +89,8 @@
 
     <div id="fb-root"></div>
 
+    <script src="js/lib/modernizr-custom.js"></script>
+    <script>if(Modernizr.touchevents) document.write('<script src="js/lib/hammer.min.js"><\/script>');</script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/lib/jquery.1.11.3.min.js"><\/script>')</script>
@@ -97,8 +99,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/ModifiersPlugin.min.js"></script>
 
     <!-- build:js js/optimized.js -->
-    <script src="js/lib/FBHelper.1.0.3.js"></script>
-    <!--<script src="js/lib/Helper.1.0.4.js"></script>-->
+    <script src="js/lib/jquery.mousewheel.min.js"></script>
+    <script src="js/lib/SiteUtils.0.0.1.js"></script>
+    <script src="js/lib/FBHelper.1.0.4.js"></script>
+    <script src="js/lib/FormHelper.0.0.5.js"></script>
     <script src="js/lib/GeomUtils.0.0.1.js"></script>
     <script src="js/lib/CanvasUtils.0.0.1.js"></script>
     <script src="js/lib/jquery.waitforimages.min.js"></script>
@@ -106,6 +110,8 @@
     <script src="js/lib/SceneHandler.1.0.5.js"></script>
     <script src="js/lib/Utility.0.0.15.js"></script>
     <script src="js/lib/ImageInput.0.0.1.js"></script>
+    <script src="js/lib/simple_scroller.0.0.7.js"></script>
+    <script src="js/ApiProxy.js"></script>
     <script src="js/Main.js"></script>
     <script src="js/Menu.js"></script>
     <script src="js/BGManager.js"></script>
@@ -113,6 +119,7 @@
     <script src="js/Publish.js"></script>
     <script src="js/Publish.WorkPart.js"></script>
     <script src="js/Publish.FormPart.js"></script>
+    <script src="js/Rule.js"></script>
     <!-- endbuild -->
 
 </body>

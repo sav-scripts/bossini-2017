@@ -94,6 +94,11 @@
         $doms.rightText2.letters = $doms.rightText2.find("div");
         $doms.rightText3.letters = $doms.rightText3.find("div");
 
+        $doms.btnStart = $doms.container.find(".btn-start").on(_CLICK_, function()
+        {
+            Main.loginFB('/Publish');
+        });
+
 
         $doms.container.detach();
     }

@@ -42,7 +42,7 @@
             $doms.btnPublish = $doms.buttonContainer.find(".btn:nth-child(3)").on(_CLICK_, function()
             {
                 self.close();
-                SceneHandler.toHash("/Publish");
+                Main.loginFB('/Publish');
             });
 
             $doms.btnHistory = $doms.buttonContainer.find(".btn:nth-child(4)").on(_CLICK_, function()

@@ -69,7 +69,7 @@
             }
 
             self._image = document.createElement("img");
-
+            self._image.crossOrigin = "anonymous";
             self._image.onload = function()
             {
                 if(cb) cb.call(null, self._image);
