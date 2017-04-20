@@ -19,7 +19,7 @@
             {
                 var templates =
                     [
-                        {url: "_rule.html?v=2", startWeight: 0, weight: 100, dom: null}
+                        {url: "_rule.html", startWeight: 0, weight: 100, dom: null}
                     ];
 
                 SceneHandler.loadTemplate(null, templates, function loadComplete()

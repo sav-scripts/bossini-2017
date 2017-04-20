@@ -36,7 +36,7 @@
             $doms.btnVideo = $doms.buttonContainer.find(".btn:nth-child(2)").on(_CLICK_, function()
             {
                 self.close();
-                SceneHandler.toHash("/Video");
+                SceneHandler.toHash("/Videos");
             });
 
             $doms.btnPublish = $doms.buttonContainer.find(".btn:nth-child(3)").on(_CLICK_, function()
@@ -48,7 +48,7 @@
             $doms.btnHistory = $doms.buttonContainer.find(".btn:nth-child(4)").on(_CLICK_, function()
             {
                 self.close();
-                SceneHandler.toHash("/History");
+                SceneHandler.toHash("/Entries");
             });
 
             $doms.btnRule = $doms.buttonContainer.find(".btn:nth-child(5)").on(_CLICK_, function()

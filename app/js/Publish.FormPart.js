@@ -8,9 +8,10 @@
 
     var self = window.Publish.FormPart =
     {
-        init: function($container)
+        init: function($container, $parent)
         {
             $doms.container = $container;
+            $doms.parent = $parent;
 
             TweenMax.set($doms.container,{autoAlpha:0, marginLeft: -50});
 
@@ -38,6 +39,7 @@
             $doms.btnSend = $doms.container.find(".btn-send").on(_CLICK_, function()
             {
                 trySend();
+                //Publish.toStep('success');
             });
 
             return self;
@@ -48,6 +50,9 @@
             if(!_isHiding) return;
             _isHiding = false;
 
+            $doms.parent.toggleClass('success-mode', false);
+            $doms.parent.toggleClass('coupon-mode', false);
+
             TweenMax.set($doms.container,{autoAlpha:0, marginLeft: -50});
             TweenMax.to($doms.container,.4,{autoAlpha:1, marginLeft: 0, onComplete: cb});
         },
@@ -57,12 +62,22 @@
             if(_isHiding) return;
             _isHiding = true;
 
-            TweenMax.to($doms.container,.4,{autoAlpha:0, marginLeft: 50, onComplete: cb});
+            $doms.container.css
+            ({
+                'opacity': '',
+                'margin-left': '',
+                'visibility': ''
+            });
+
+            if(cb) cb.call();
+            //TweenMax.to($doms.container,.4,{autoAlpha:0, marginLeft: 50, onComplete: cb});
         }
     };
 
     function trySend()
     {
+        Publish.Coupon.setCouponUrl(null);
+
         var formObj = checkForm();
         //var formObj = {};
 
@@ -89,7 +104,12 @@
                     }
                     else
                     {
-                        alert('資料送出成功');
+                        //alert('資料送出成功');
+
+                        Publish.Success.setShareImageUrl(response.share_url);
+                        Publish.Coupon.setCouponUrl(response.coupon);
+
+                        Publish.toStep('success');
                     }
 
                     Loading.hide();
@@ -100,10 +120,6 @@
             {
                 alert('lack image data');
             }
-        }
-        else
-        {
-            alert("unsupported mode");
         }
 
     }
@@ -176,8 +192,6 @@
         {
             alert('請輸入詳細的地址'); dom.focus(); return;
         }else formObj.address_detail = dom.value;
-
-        console.log(formObj);
 
         return formObj;
 

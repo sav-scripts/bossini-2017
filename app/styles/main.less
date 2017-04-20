@@ -7,6 +7,8 @@
 @pc-width: 1200px;
 @pc-height: 700px;
 
+@border-color: #4db847;
+
 
 html {
     padding: 0;
@@ -167,7 +169,7 @@ div{
                 height: 0;
 
                 width: 1px;
-                background-color: #4db847;
+                background-color: @border-color;
 
                 transition: height .5s ease-out;
             }
@@ -273,7 +275,7 @@ div{
 
         .bar-1, .bar-2, .bar-3{
             position: absolute;
-            background-color: #4db847;
+            background-color: @border-color;
             width: 34px;
             height: 5px;
             border-radius: 20px;
@@ -461,7 +463,7 @@ div{
 #publish {
 
     .percent-container(@left: 50%; @top: 50%;);
-    .layout-pc('publish-form.jpg');
+    .layout-pc('publish-coupon.jpg');
 
     .abs-div-2(basement, -431, -223, 855, 480, 'publish-basement.png');
 
@@ -469,6 +471,9 @@ div{
         position: absolute;
         left:0;
         top:0;
+
+        visibility: visible;
+        opacity: 0;
 
         .abs-div-2(work-texts, 10, -158, 346, 299, 'publish-work-texts.png');
 
@@ -521,7 +526,7 @@ div{
             cursor: pointer;
 
             &.focus-mode{
-                border: 1px solid #4db847;
+                border: 1px solid @border-color;
             }
         }
 
@@ -548,12 +553,15 @@ div{
         left: 0;
         top: 0;
 
+        visibility: visible;
+        opacity: 0;
+
         .abs-div-2(form-texts, 10, -158, 356, 295, 'publish-form-texts.png');
 
         .field{
             position: absolute;
             height: 16px;
-            border: 1px solid #4db847;
+            border: 1px solid @border-color;
             background-color: white;
             .default-font(14px, #697085);
 
@@ -604,7 +612,7 @@ div{
 
             letter-spacing: 1px;
 
-            border: 1px solid #4db847;
+            border: 1px solid @border-color;
 
             height: 22px;
 
@@ -663,7 +671,7 @@ div{
             width: 20px;
             height: 20px;
 
-            border: 1px solid #4db847;
+            border: 1px solid @border-color;
 
             label{
                 left: 3px;
@@ -712,6 +720,8 @@ div{
         height: @work-height;
         background-color: #e2e2e2;
 
+        visibility: visible;
+
         opacity: 0;
 
         transition: opacity .0s ease-out;
@@ -750,6 +760,145 @@ div{
             .default-font(22px, black);
             line-height: 28px;
         }
+    }
+
+    .success-dialog{
+        visibility: hidden;
+
+        position: absolute;
+        left:0;
+        top:0;
+
+        .text{
+            .abs-div-2(none, -155, -33, 339, 31, 'publish-success-text-1.png');
+        }
+
+        .btn-skip{
+            .abs-div-2(none, -222, 19, 226, 41, 'publish-success-btn-skip.png');
+            cursor: pointer;
+
+            &:active{
+                margin-top: 1px;
+            }
+        }
+
+        .btn-share{
+            .abs-div-2(none, 22, 19, 226, 41, 'publish-success-btn-share.png');
+            cursor: pointer;
+
+            &:active{
+                margin-top: 1px;
+            }
+        }
+    }
+
+    .coupon-dialog{
+        visibility: hidden;
+
+        position: absolute;
+        left:0;
+        top:0;
+
+        .coupon-image{
+            position: absolute;
+
+            left: -157px;
+            top: -275px;
+            width: 314px;
+            height: 558px;
+
+//            background-image:url(../misc/coupon-sample.png);
+            background-size:cover;
+
+//            background-color: rgba(0,0,0,.3);
+        }
+
+        .btn-download{
+            .abs-div-2(none, -96, 294, 191, 44, 'publish-coupon-btn-download.png');
+            cursor: pointer;
+
+            &:active{
+                margin-top: 1px;
+            }
+        }
+    }
+
+    &.success-mode{
+        .work-container, .work-part, .form-part{
+
+            @d: .3s;
+            @e: ease-in;
+
+            transition: opacity @d @e, visibility .0s linear @d;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .basement{
+
+            @d: .4s;
+            @e: ease-out;
+            @delay: .4s;
+
+            transition: left @d @e @delay, top @d @e @delay, width @d @e @delay, height @d @e @delay;
+
+            left: -292px;
+            top: -59px;
+            width: 585px;
+            height: 152px;
+
+            background-color: white;
+            background-image: none;
+        }
+
+    }
+
+    &.coupon-mode{
+        .work-container, .work-part, .form-part{
+
+            @d: .3s;
+            @e: ease-in;
+
+            transition: opacity @d @e, visibility .0s linear @d;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .basement{
+
+            @d: .4s;
+            @e: ease-out;
+            @delay: .4s;
+
+            transition: left @d @e @delay, top @d @e @delay, width @d @e @delay, height @d @e @delay;
+
+            left: -157px;
+            top: -275px;
+            width: 314px;
+            height: 558px;
+
+            background-color: white;
+            background-image: none;
+        }
+
+    }
+
+}
+
+/** entries **/
+#entries{
+
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+
+    .content{
+
+
+        .percent-container(@left: 50%; @top: 50%;);
+        .layout-pc("entries.jpg");
     }
 
 }
@@ -816,6 +965,91 @@ div{
             margin-left: 0;
             margin-top: 0;
             background-color: transparent;
+        }
+    }
+}
+
+
+
+/** videos **/
+#videos {
+    .percent-container(@left: 50%; @top: 50%;);
+    .layout-pc("videos.jpg");
+    
+    .video-container{
+
+        .abs-div-2(none, -361, -261, 720, 480);
+
+        border: 1px solid @border-color;
+        background-color: rgba(0,0,0,.25);
+    }
+
+    .thumb-container{
+
+        @thumb-width: 136px;
+        @thumb-height: 77px;
+        @thumb-margin: 8px;
+        @num-thumbs: 6;
+
+        @container-width: (@thumb-width + 2px + @thumb-margin*2) * @num-thumbs;
+
+        position: absolute;
+        left:-@container-width * .5;
+        width: @container-width;
+
+        top: 232px;
+
+        .thumb{
+            position: relative;
+            float: left;
+
+            width: @thumb-width;
+            height: @thumb-height;
+
+            background-color: rgba(0,0,0,.5);
+
+            margin-left: @thumb-margin;
+            margin-right: @thumb-margin;
+
+            border: 1px solid white;
+
+            transition: border-color .4s ease-out;
+
+            .desc{
+                .default-font(14px, white);
+
+                transition: color .4s ease-out;
+
+                position: absolute;
+                text-align: center;
+                width: @thumb-width;
+                top: @thumb-height + 2px;
+            }
+
+            cursor: pointer;
+
+            &.focus-mode, &:hover{
+
+                border-color: @border-color;
+
+                .desc{
+                    color: @border-color;
+                }
+            }
+
+            .my-mixin(1);
+            .my-mixin(2);
+            .my-mixin(3);
+            .my-mixin(4);
+            .my-mixin(5);
+            .my-mixin(6);
+
+            .my-mixin(@index;)
+            {
+                &:nth-child(@{index}){
+                    .image-bg('index-video-thumb-@{index}.png');
+                }
+            }
         }
     }
 }

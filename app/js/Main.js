@@ -4,6 +4,9 @@
     var self = window.Main =
     {
         testmode: false,
+        useFakeData: false,
+
+        version: 6,
 
         localSettings:
         {
@@ -41,7 +44,9 @@
         hashArray:
         [
             "/Index",
+            "/Videos",
             "/Publish",
+            "/Entries",
             "/Rule"
         ],
 
@@ -89,7 +94,7 @@
                     defaultHash: self.defaultHash,
                     listeningHashChange: true,
                     loadingClass: Loading,
-                    version: Utility.urlParams.nocache == '1'? new Date().getTime(): "1",
+                    version: Utility.urlParams.nocache == '1'? new Date().getTime(): Main.version,
 
                     cbBeforeChange: function()
                     {

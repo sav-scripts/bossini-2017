@@ -23,7 +23,7 @@
             {
                 var templates =
                     [
-                        {url: "_index.html?v=4", startWeight: 0, weight: 100, dom: null}
+                        {url: "_index.html", startWeight: 0, weight: 100, dom: null}
                     ];
 
                 SceneHandler.loadTemplate(null, templates, function loadComplete()

@@ -8,9 +8,10 @@
 
     var self = window.Publish.WorkPart =
     {
-        init: function($container)
+        init: function($container, $parent)
         {
             $doms.container = $container;
+            $doms.parent = $parent;
 
             return self;
         },
@@ -19,6 +20,9 @@
         {
             if(!_isHiding) return;
             _isHiding = false;
+
+            $doms.parent.toggleClass('success-mode', false);
+            $doms.parent.toggleClass('coupon-mode', false);
 
             TweenMax.to($doms.container,.4,{autoAlpha:1, marginLeft: 0, onComplete: cb});
         },

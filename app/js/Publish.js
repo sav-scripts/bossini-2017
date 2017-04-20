@@ -20,7 +20,8 @@
         _fixTexts = '#不停止，就是最好的超越。',
 
         _currentStep = 'work',
-        _defaultStep = 'work',
+        _defaultStep = _currentStep,
+        //_defaultStep = 'coupon',
         _partClassDic = null;
 
     var self = window.Publish =
@@ -38,7 +39,7 @@
             {
                 var templates =
                     [
-                        {url: "_publish.html?v=2", startWeight: 0, weight: 100, dom: null}
+                        {url: "_publish.html", startWeight: 0, weight: 100, dom: null}
                     ];
 
                 SceneHandler.loadTemplate(null, templates, function loadComplete()
@@ -109,8 +110,10 @@
 
         _partClassDic =
         {
-            'work':self.WorkPart.init($doms.container.find(".work-part")),
-            'form': self.FormPart.init($doms.container.find(".form-part"))
+            'work':self.WorkPart.init($doms.container.find(".work-part"), $doms.container),
+            'form': self.FormPart.init($doms.container.find(".form-part"), $doms.container),
+            'success': self.Success.init($doms.container.find(".success-dialog"), $doms.container),
+            'coupon': self.Coupon.init($doms.container.find(".coupon-dialog"), $doms.container)
         };
 
         $doms.workContainer = $doms.container.find('.work-container').toggleClass("visible-mode", false);
