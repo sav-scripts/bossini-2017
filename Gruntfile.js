@@ -36,8 +36,11 @@ module.exports = function(grunt)
                         src: [
                             //'images/*.{png,gif,jpg,svg}',
                             '*.html',
-                            'js/lib/TweenMax.min.js',
-                            'js/lib/jquery.1.11.3.min.js'
+                            'js/lib/modernizr-custom.js',
+                            'js/lib/SquareLoading.1.0.1.js',
+                            'js/lib/hammer.min.js',
+                            'js/lib/jquery.1.11.3.min.js',
+                            'misc/*.*'
                         ],
                         dest: 'dist/app'
                     }

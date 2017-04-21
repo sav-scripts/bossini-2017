@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640">
+
+    <meta property="fb:app_id" content="xxx"/>
+    <!--<meta property="og:title" content="xxx" />-->
+    <!--<meta property="og:type" content="activity" />-->
+    <!--<meta property="og:url" content="xxx" />-->
+    <!--<meta property="og:description" content="xxx" />-->
+    <!--<meta property="og:image" content="xxx" />-->
+
+    <link rel="stylesheet" href="styles/main.dbf7554f60b8277f1ad7.css">
+
+</head>
+<body onload="Main.init();">
+
+    <script src="js/lib/SquareLoading.1.0.1.js"></script>
+    <script>
+
+        window.Loading = SquareLoading;
+        Loading.progress(0).show();
+
+    </script>
+
+
+    <div id="invisible-container"></div>
+    <div id="scene-container">
+
+        <div id="background">
+
+            <div class="backgrounds">
+                <div class="bg-1"></div>
+                <div class="bg-2"></div>
+                <div class="bg-3"></div>
+                <div class="bg-4"></div>
+                <div class="bg-5"></div>
+            </div>
+
+            <video class="fullsize-video" width="1920" height="1080" loop>
+                <source src="misc/index-background.mp4" type="video/mp4">
+            </video>
+
+            <div class="cover"></div>
+
+        </div>
+
+
+
+        <div id="statement" class="hide-mode"></div>
+    </div>
+
+    <div id="menu" class="hide-mode">
+
+        <div class="open-part">
+
+            <div class="center-container">
+
+                <!--<div class="layout"></div>-->
+
+                <div class="green-line"></div>
+                <div class="deco-text-1"></div>
+
+                <div class="button-container">
+
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bar"></div>
+        <div class="logo"></div>
+        <div class="icon">
+            <div class="bar-1"></div>
+            <div class="bar-2"></div>
+            <div class="bar-3"></div>
+        </div>
+    </div>
+
+    <div id="fb-root"></div>
+
+    <script src="js/lib/modernizr-custom.js"></script>
+    <script>if(Modernizr.touchevents) document.write('<script src="js/lib/hammer.min.js"><\/script>');</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/lib/jquery.1.11.3.min.js"><\/script>')</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/ModifiersPlugin.min.js"></script>
+
+    <script src="js/optimized.9e105e6f0f9e690dcee9.js"></script>
+
+</body>
+</html>

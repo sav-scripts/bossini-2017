@@ -18,15 +18,79 @@
             "data": // 搜尋結果 (如果是搜尋流水號的話, 資料最多只會有一筆)
                 [
                     {
-                        "serial": "0088", // 作品流水號
-                        "thumb_url": "http://xxxx.xx/thumbxxx.jpg", // 作品縮圖 url (尺寸 180 x 180)
-                        "url":  "http://xxxx.xx/imagexxx.jpg" // 作品 url (尺寸 600 x 600)
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
+                    },
+                    {
+                        "serial": "0088",
+                        "thumb_url": "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1-thumb.png",
+                        "url":  "http://local.savorks.com/projects/zoo/bossini-2017/app/misc/sample-1.png"
                     }
-                    // ...以下多筆資料
                 ],
-            "num_pages": 12, // 搜尋結果的頁數
+            "num_pages": 3, // 搜尋結果的頁數
             "page_index": 0, // 所回應的資料的分頁索引
-            "page_size": 10 // request 的 page_size, 原樣傳回
+            "page_size": 14 // request 的 page_size, 原樣傳回
         }
     };
 

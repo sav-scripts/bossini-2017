@@ -66,7 +66,7 @@
             ({
                 'opacity': '',
                 'margin-left': '',
-                'visibility': ''
+                'visibility': 'hidden'
             });
 
             if(cb) cb.call();

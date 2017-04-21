@@ -47,7 +47,8 @@
             "/Videos",
             "/Publish",
             "/Entries",
-            "/Rule"
+            "/Rule",
+            "/Vip"
         ],
 
         defaultHash: "/Index",

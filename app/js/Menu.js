@@ -65,6 +65,7 @@
             $doms.btnVip = $doms.buttonContainer.find(".btn:nth-child(7)").on(_CLICK_, function()
             {
                 self.close();
+                SceneHandler.toHash("/Vip");
             });
         },
 
