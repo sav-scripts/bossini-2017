@@ -77,10 +77,9 @@
 
             if(oldPart)
             {
-                oldPart.hide();
+                oldPart.hide(newPart.show);
             }
-
-            if(newPart)
+            else
             {
                 newPart.show();
             }

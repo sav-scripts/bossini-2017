@@ -24,6 +24,8 @@
             $doms.parent.toggleClass('success-mode', false);
             $doms.parent.toggleClass('coupon-mode', false);
 
+            $("#scene-container").toggleClass("height-1150", true);
+
             TweenMax.to($doms.container,.4,{autoAlpha:1, marginLeft: 0, onComplete: cb});
         },
 
@@ -32,7 +34,11 @@
             if(_isHiding) return;
             _isHiding = true;
 
-            TweenMax.to($doms.container,.4,{autoAlpha:0, marginLeft: 50, onComplete: cb});
+            TweenMax.to($doms.container,.4,{autoAlpha:0, marginLeft: 50, onComplete: function()
+            {
+                $("#scene-container").toggleClass("height-1150", false);
+                if(cb) cb.call();
+            }});
         }
     };
 

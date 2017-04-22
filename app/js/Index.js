@@ -99,14 +99,87 @@
             Main.loginFB('/Publish');
         });
 
+        setupVideoSelector();
+
 
         $doms.container.detach();
+    }
+
+    function setupVideoSelector()
+    {
+        var numVideos = 6,
+            currentIndex = 1,
+            i,
+            isLocking = false;
+
+
+
+        $doms.arrowLeft = $doms.videoSelect.find(".arrow-left").on(_CLICK_, function()
+        {
+            if(isLocking) return;
+            toIndex(currentIndex-1);
+        });
+
+        $doms.arrowRight = $doms.videoSelect.find(".arrow-right").on(_CLICK_, function()
+        {
+            if(isLocking) return;
+            toIndex(currentIndex+1);
+        });
+
+        var $thumbContainer = $doms.videoSelect.find('.thumb-container').on(_CLICK_, function()
+        {
+            var videoDic = Videos.getVideoDic();
+            if(videoDic[currentIndex].id)
+            {
+                Videos.setPlayingIndex(currentIndex);
+                SceneHandler.toHash("/Videos");
+            }
+            else
+            {
+                alert('影片尚未開放，敬請期待');
+            }
+        });
+
+        var $thumbWrapper = $thumbContainer.find(".wrapper"),
+            $videoDesc = $doms.videoSelect.find(".video-desc");
+
+        $doms.videoSelect.toIndex = toIndex;
+
+        function toIndex(index)
+        {
+            if(index < 1) return;
+            if(index > numVideos) return;
+
+            currentIndex = index;
+
+            var offsetUnit = Main.viewport.index == 0? 246: 136,
+                offset = offsetUnit * -(currentIndex-1);
+
+            isLocking = true;
+            TweenMax.to($thumbWrapper,.4,{marginLeft:offset, onComplete: function()
+            {
+                isLocking = false;
+            }});
+
+            updateArrows();
+
+            var videoDic = Videos.getVideoDic();
+            $videoDesc.text(videoDic[currentIndex].title);
+        }
+
+        function updateArrows()
+        {
+            $doms.arrowLeft.toggleClass("hiding", currentIndex == 1);
+            $doms.arrowRight.toggleClass("hiding", currentIndex == numVideos);
+        }
     }
 
     function playContents_pc()
     {
 
         if(_contentTL) _contentTL.kill();
+
+        $doms.videoSelect.toIndex(1);
 
         var tl = _contentTL = new TimelineMax;
 
@@ -135,6 +208,8 @@
     function playContents_mobile()
     {
         if(_contentTL) _contentTL.kill();
+
+        $doms.videoSelect.toIndex(1);
 
         var tl = _contentTL = new TimelineMax;
 

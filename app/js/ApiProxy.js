@@ -10,6 +10,7 @@
             error: '',
             serial: '00001',
             share_url: 'http://local.savorks.com/projects/zoo/bossini-2017/app/misc/fb-share.jpg',
+            //coupon: ''
             coupon: 'http://local.savorks.com/projects/zoo/bossini-2017/app/misc/coupon-sample.png'
         },
         "get_entries":

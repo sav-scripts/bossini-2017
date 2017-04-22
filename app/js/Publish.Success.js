@@ -14,6 +14,8 @@
             $doms.container = $container;
             $doms.parent = $parent;
 
+            $doms.contentText = $doms.container.find(".text");
+
             $doms.btnSkip = $doms.container.find(".btn-skip").on(_CLICK_, function()
             {
                 self.toNextStep();
@@ -27,13 +29,13 @@
                         method:"feed",
                         display: "iframe",
                         link: Utility.getPath(),
-                        picture: _shareImageUrl + "?v=" + new Date().getTime(),
+                        picture: _shareImageUrl,
                         title: "feed title",
                         description: 'feed description'
                     },function(response)
                     {
-                        console.log(JSON.stringify(response));
-                        if(response.error_message)
+                        //console.log(JSON.stringify(response));
+                        if(response && response.error_message)
                         {
                             console.log(response.error_message);
                         }
@@ -72,6 +74,8 @@
             _isHiding = false;
 
             TweenMax.to($doms.container,.4,{autoAlpha:1, delay:.9, onComplete: cb});
+
+            $doms.contentText.toggleClass("no-coupon-mode", Publish.Coupon.getCouponUrl() == false);
 
             $doms.parent.toggleClass('coupon-mode', false);
             $doms.parent.toggleClass('success-mode', true);

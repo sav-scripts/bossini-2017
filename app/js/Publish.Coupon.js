@@ -40,9 +40,9 @@
             }
         },
 
-        getCouponUrl: function(url)
+        getCouponUrl: function()
         {
-            return _couponUrl;
+            return _couponUrl || false;
         },
 
         show: function(cb)

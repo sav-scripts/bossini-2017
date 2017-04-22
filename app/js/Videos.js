@@ -41,15 +41,14 @@
 
     var self = window.Videos =
     {
+        getVideoDic: function()
+        {
+            return _videoDic;
+        },
+
         setPlayingIndex: function(index)
         {
             _currentIndex = index;
-            updateThumbs();
-
-            if(_isPlayerReady)
-            {
-                playVideo(_currentIndex);
-            }
         },
 
         stageIn: function (options, cb)

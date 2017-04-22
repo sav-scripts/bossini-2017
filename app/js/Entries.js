@@ -21,6 +21,7 @@
         _viewportIndex,
         _thumbData,
         $activeThumbs,
+        _contentTL,
         _isLocking = true;
 
     var self = window.Entries =
@@ -118,6 +119,9 @@
 
         $doms.thumbs = $doms.thumbContainer.find(".thumb");
 
+        $doms.text1 = $doms.container.find(".text-1");
+        $doms.text1.letters = $doms.text1.find("div");
+
         self.ShowEntry.init();
 
         $doms.container.detach();
@@ -213,45 +217,62 @@
 
     function showThumbs(cb)
     {
-        var i, tl, delay = 0;
+        var i, tl, delay = 0, $thumb;
 
         tl = new TimelineMax;
+
+        var array = [];
 
 
         for(i=0;i<$activeThumbs.length;i++)
         {
-            if(setupThumb(i, tl, delay)) delay += .05;;
+            $thumb = setupThumb(i);
+            if($thumb) array.push($thumb);
+        }
+
+        array = Utility.shuffleArray(array);
+
+        for(i=0;i<array.length;i++)
+        {
+            $thumb = array[i];
+            tl.to($thumb,.6,{alpha:1, ease:Power1.easeIn}, delay);
+
+            delay += .1;
         }
 
         if(cb) tl.add(cb);
     }
 
-    function setupThumb(index, tl, delay)
+    function setupThumb(index)
     {
 
         var $thumb = $activeThumbs[index],
             obj = _thumbData[index];
 
+        $thumb.unbind(_CLICK_);
+
         if(!obj)
         {
             $thumb.toggleClass("ignore-mode", true);
-            $thumb.unbind(_CLICK_);
 
-            return false;
+            return null;
         }
         else
         {
+            //console.log(obj);
+
             $thumb.toggleClass("ignore-mode", false).
                 css("background-image", "url("+obj.thumb_url+")").
                 on(_CLICK_, function()
                 {
+                    //console.log(obj.url);
                     self.ShowEntry.show(obj.url);
                 });
 
 
-            tl.to($thumb,.4,{alpha:1}, delay);
+            //tl.to($thumb,.4,{alpha:1}, delay);
 
-            return true;
+            return $thumb;
         }
     }
 
@@ -286,10 +307,48 @@
 
     function showContent()
     {
-        var tl = new TimelineMax;
-        tl.set($doms.container, {autoAlpha: 0});
-        tl.to($doms.container, .2, {autoAlpha: 1});
+
+
+        if(Main.viewport.index === 0)
+        {
+            playContents_mobile();
+        }
+        else
+        {
+            playContents_pc();
+        }
     }
+
+    function playContents_pc()
+    {
+
+
+        if(_contentTL) _contentTL.kill();
+
+        var tl = _contentTL = new TimelineMax;
+
+        tl.set($doms.container, {autoAlpha:0});
+        tl.to($doms.container,.3, {autoAlpha: 1, ease:Power1.easeIn});
+
+        var letters = Utility.shuffleArray($doms.text1.letters);
+
+        tl.set(letters, {autoAlpha:0, z:100}, 0);
+        tl.staggerTo(letters, 1, {autoAlpha:1, z:0},.02,.3);
+
+        tl.set($doms.btnToPublish, {autoAlpha:0}, 0);
+        tl.to($doms.btnToPublish,.5,{autoAlpha:1, ease:Power1.easeIn}, "-=.5");
+    }
+
+    function playContents_mobile()
+    {
+        if(_contentTL) _contentTL.kill();
+
+        var tl = _contentTL = new TimelineMax;
+        tl.set($doms.container, {autoAlpha: 0});
+        tl.to($doms.container, .5, {autoAlpha: 1});
+    }
+
+
 
     function hide(cb)
     {
@@ -304,6 +363,28 @@
             $doms.container.detach();
             cb.apply();
         });
+    }
+
+
+    function r1(v, v2)
+    {
+        console.log(v2);
+        return 100 + Math.random()*100;
+    }
+
+    function r2()
+    {
+        return -50 + Math.random()*100;
+    }
+
+    function r3()
+    {
+        return -360 + Math.random()*720;
+    }
+
+    function r4()
+    {
+        return -2 + Math.random()*4;
     }
 
 }());

@@ -53,7 +53,8 @@
 
                 if(vp.changed)
                 {
-                    var scrollBarSize = vp.index == 0? 101: 126;
+                    //var scrollBarSize = vp.index == 0? 101: 101;
+                    var scrollBarSize = 126;
 
                     var containerHeight = $doms.contentContainer.height();
                     //var $ssContainer = $(_ss.doms.container);

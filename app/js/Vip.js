@@ -64,7 +64,7 @@
 
     function show(cb)
     {
-        $("#scene-container").append($doms.container);
+        $("#scene-container").append($doms.container).toggleClass('height-1150', true);
 
         self.resize(true);
 
@@ -99,6 +99,7 @@
         tl.add(function ()
         {
             $doms.container.detach();
+            $("#scene-container").toggleClass('height-1150', false);
             cb.apply();
         });
     }

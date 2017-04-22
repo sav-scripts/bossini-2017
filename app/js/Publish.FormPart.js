@@ -53,6 +53,8 @@
             $doms.parent.toggleClass('success-mode', false);
             $doms.parent.toggleClass('coupon-mode', false);
 
+            $("#scene-container").toggleClass("height-1150", true);
+
             TweenMax.set($doms.container,{autoAlpha:0, marginLeft: -50});
             TweenMax.to($doms.container,.4,{autoAlpha:1, marginLeft: 0, onComplete: cb});
         },
@@ -68,6 +70,9 @@
                 'margin-left': '',
                 'visibility': 'hidden'
             });
+
+
+            $("#scene-container").toggleClass("height-1150", false);
 
             if(cb) cb.call();
             //TweenMax.to($doms.container,.4,{autoAlpha:0, marginLeft: 50, onComplete: cb});
@@ -129,21 +134,6 @@
         var formObj={};
         var dom;
 
-        if(!$doms.eulaCheckbox[0].checked)
-        {
-            alert('您必須同意遵守活動相關規範才能參加活動');
-            return;
-        }
-
-        formObj.inform_allowed = $doms.informCheckbox[0].checked? 'true': 'false';
-
-        formObj.gender = $doms.fields.genderSelect.val();
-        if(!formObj.gender)
-        {
-            alert('請選擇您的性別');
-            return;
-        }
-
 
         dom = $doms.fields.lastName[0];
         if(PatternSamples.onlySpace.test(dom.value))
@@ -156,6 +146,14 @@
         {
             alert('請輸入您的名字'); dom.focus(); return;
         }else formObj.first_name = dom.value;
+
+
+        formObj.gender = $doms.fields.genderSelect.val();
+        if(!formObj.gender)
+        {
+            alert('請選擇您的性別');
+            return;
+        }
 
         dom = $doms.fields.email[0];
         if(!PatternSamples.email.test(dom.value))
@@ -175,23 +173,36 @@
 
         if(!addressValue.county)
         {
-            alert('請選擇您居住的縣市'); return;
+            //alert('請選擇您居住的縣市'); return;
         }
 
         if(!addressValue.zone)
         {
-            alert('請選擇您居住的地區'); return;
+            //alert('請選擇您居住的地區'); return;
         }
 
-        formObj.address_county = addressValue.county;
-        formObj.address_zone = addressValue.zone;
+        formObj.address_county = addressValue.county || '';
+        formObj.address_zone = addressValue.zone || '';
 
 
         dom = $doms.fields.addressDetail[0];
         if(PatternSamples.onlySpace.test(dom.value))
         {
-            alert('請輸入詳細的地址'); dom.focus(); return;
-        }else formObj.address_detail = dom.value;
+            //alert('請輸入詳細的地址'); dom.focus(); return;
+        }
+
+        formObj.address_detail = dom.value || '';
+
+
+
+        if(!$doms.eulaCheckbox[0].checked)
+        {
+            alert('您必須同意遵守活動相關規範才能參加活動');
+            return;
+        }
+
+        formObj.inform_allowed = $doms.informCheckbox[0].checked? 'true': 'false';
+
 
         return formObj;
 
