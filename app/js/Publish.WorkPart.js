@@ -21,6 +21,8 @@
             if(!_isHiding) return;
             _isHiding = false;
 
+            ga('send', 'pageview', '發表宣言 - 上傳與填字');
+
             $doms.parent.toggleClass('success-mode', false);
             $doms.parent.toggleClass('coupon-mode', false);
 

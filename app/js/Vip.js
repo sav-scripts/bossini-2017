@@ -66,6 +66,8 @@
     {
         $("#scene-container").append($doms.container).toggleClass('height-1150', true);
 
+        ga('send', 'pageview', 'VIP 方案');
+
         self.resize(true);
 
         cb.apply();

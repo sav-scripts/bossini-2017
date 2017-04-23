@@ -96,6 +96,7 @@
 
         $doms.btnStart = $doms.container.find(".btn-start").on(_CLICK_, function()
         {
+            ga('send', 'event', '首頁', '按鈕點擊', '留下宣言');
             Main.loginFB('/Publish');
         });
 
@@ -128,8 +129,12 @@
 
         var $thumbContainer = $doms.videoSelect.find('.thumb-container').on(_CLICK_, function()
         {
-            var videoDic = Videos.getVideoDic();
-            if(videoDic[currentIndex].id)
+            var videoDic = Videos.getVideoDic(),
+                obj = videoDic[currentIndex];
+
+            ga('send', 'event', '首頁', '點擊影片縮圖', obj.title);
+
+            if(obj.id)
             {
                 Videos.setPlayingIndex(currentIndex);
                 SceneHandler.toHash("/Videos");
@@ -245,6 +250,8 @@
     function show(cb)
     {
         $("#scene-container").append($doms.container);
+
+        ga('send', 'pageview', '首頁');
 
         self.resize(true);
 

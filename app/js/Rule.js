@@ -88,6 +88,8 @@
     {
         $("#scene-container").append($doms.container);
 
+        ga('send', 'pageview', '活動辦法與獎項');
+
         self.resize(true);
 
         cb.apply();

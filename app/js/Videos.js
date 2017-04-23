@@ -203,6 +203,7 @@
 
             $thumb.on(_CLICK_, function()
             {
+                ga('send', 'event', '影片', '影片選擇', dataObj.title);
                 if(_currentIndex == index) return;
                 playVideo(index);
             });
@@ -213,6 +214,8 @@
     function show(cb)
     {
         $("#scene-container").append($doms.container);
+
+        ga('send', 'pageview', '影片');
 
         self.resize(true);
 

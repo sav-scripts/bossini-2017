@@ -5,6 +5,7 @@
 
     var $doms = {},
         _shareImageUrl,
+        _gaGroup,
         _isHiding = true;
 
     var self = window.Publish.Success =
@@ -18,11 +19,14 @@
 
             $doms.btnSkip = $doms.container.find(".btn-skip").on(_CLICK_, function()
             {
+                ga('send', 'event', _gaGroup, '按鈕點擊', '跳過');
                 self.toNextStep();
             });
 
             $doms.btnShare = $doms.container.find(".btn-share").on(_CLICK_, function()
             {
+                ga('send', 'event', _gaGroup, '按鈕點擊', '分享 Facebook');
+
                 FB.ui
                 (
                     {
@@ -75,7 +79,20 @@
 
             TweenMax.to($doms.container,.4,{autoAlpha:1, delay:.9, onComplete: cb});
 
-            $doms.contentText.toggleClass("no-coupon-mode", Publish.Coupon.getCouponUrl() == false);
+
+
+            if(Publish.Coupon.getCouponUrl() == false)
+            {
+                $doms.contentText.toggleClass("no-coupon-mode", true);
+                _gaGroup = '發表宣言 - 表單送交成功 - 折價券 - 無';
+            }
+            else
+            {
+                $doms.contentText.toggleClass("no-coupon-mode", false);
+                _gaGroup = '發表宣言 - 表單送交成功 - 折價券 - 有';
+            }
+
+            ga('send', 'pageview', _gaGroup);
 
             $doms.parent.toggleClass('coupon-mode', false);
             $doms.parent.toggleClass('success-mode', true);

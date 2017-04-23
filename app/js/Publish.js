@@ -145,6 +145,7 @@
             }
             else
             {
+                ga('send', 'event', '發表宣言 - 上傳與填字', '完成送出', text);
                 self.toStep('form');
             }
         });
@@ -173,6 +174,13 @@
         updateTextCanvas();
 
         $doms.container.detach();
+    }
+
+    function reset()
+    {
+        $doms.textInput.val($doms.textInput.defaultText);
+        updateInputField($doms.textInput);
+        updateTextCanvas();
     }
 
     function getCombinedCanvas()
@@ -343,7 +351,12 @@
 
         self.resize(true);
 
+        $doms.container.toggleClass('success-mode', false);
+        $doms.container.toggleClass('coupon-mode', false);
+
         self.toStep(_defaultStep);
+
+        reset();
 
         cb.apply();
     }

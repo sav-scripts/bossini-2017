@@ -38,6 +38,7 @@
 
             $doms.btnSend = $doms.container.find(".btn-send").on(_CLICK_, function()
             {
+                ga('send', 'event', '發表宣言 - 表單', '按鈕點擊', '完成送出');
                 trySend();
                 //Publish.toStep('success');
             });
@@ -50,10 +51,14 @@
             if(!_isHiding) return;
             _isHiding = false;
 
+            ga('send', 'pageview', '發表宣言 - 表單');
+
             $doms.parent.toggleClass('success-mode', false);
             $doms.parent.toggleClass('coupon-mode', false);
 
             $("#scene-container").toggleClass("height-1150", true);
+
+            reset();
 
             TweenMax.set($doms.container,{autoAlpha:0, marginLeft: -50});
             TweenMax.to($doms.container,.4,{autoAlpha:1, marginLeft: 0, onComplete: cb});
@@ -79,6 +84,22 @@
         }
     };
 
+    function reset()
+    {
+        $doms.fields.firstName.val('');
+        $doms.fields.lastName.val('');
+        $doms.fields.email.val('');
+        $doms.fields.phone.val('');
+        $doms.fields.addressDetail.val('');
+
+        $doms.fields.genderSelect[0].selectedIndex = 0;
+        $doms.fields.addressCounty[0].selectedIndex = 0;
+        $doms.fields.addressZone[0].selectedIndex = 0;
+
+        $doms.eulaCheckbox[0].checked = false;
+        $doms.informCheckbox[0].checked = false;
+    }
+
     function trySend()
     {
         Publish.Coupon.setCouponUrl(null);
@@ -92,6 +113,7 @@
 
             if(canvas)
             {
+
                 formObj.image_data = canvas.toDataURL("image/jpeg", .95).replace(/^data:image\/jpeg;base64,/, "");
 
                 formObj.description = Publish.getInputText();
@@ -106,6 +128,8 @@
                     if(response.error)
                     {
                         alert(response.error);
+
+                        ga('send', 'event', '發表宣言 - 表單', '資料送交失敗', response.error);
                     }
                     else
                     {
@@ -113,6 +137,9 @@
 
                         Publish.Success.setShareImageUrl(response.share_url);
                         Publish.Coupon.setCouponUrl(response.coupon);
+
+                        ga('send', 'event', '發表宣言 - 表單', '資料送交成功 - 序號', response.serial);
+                        ga('send', 'event', '發表宣言 - 表單', '資料送交成功 - 折價券', response.coupon);
 
                         Publish.toStep('success');
                     }

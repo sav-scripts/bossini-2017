@@ -17,6 +17,7 @@
             $doms.couponImage = $doms.container.find(".coupon-image");
             $doms.btnDownload = $doms.container.find(".btn-download").on(_CLICK_, function()
             {
+                ga('send', 'event', '發表宣言 - 折價券', '點擊下載', _couponUrl);
                 if(_couponUrl)
                 {
                     window.open(_couponUrl + "?download=1", "_blank");
@@ -49,6 +50,8 @@
         {
             if(!_isHiding) return;
             _isHiding = false;
+
+            ga('send', 'pageview', '發表宣言 - 折價券');
 
             TweenMax.to($doms.container,.4,{autoAlpha:1, delay:.9, onComplete: cb});
 

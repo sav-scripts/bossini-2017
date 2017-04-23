@@ -27,44 +27,58 @@
                 _isOpening? self.close(): self.open();
             });
 
+            $doms.logo = $doms.container.find('.logo').on(_CLICK_, function()
+            {
+                ga('send', 'event', '選單', '按鈕點擊', 'logo');
+                window.open('https://www.bossini.com.tw/', '_blank');
+            });
+
             $doms.btnIndex = $doms.buttonContainer.find(".btn:nth-child(1)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', '首頁');
                 SceneHandler.toHash("/Index");
             });
 
             $doms.btnVideo = $doms.buttonContainer.find(".btn:nth-child(2)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', '影片');
                 SceneHandler.toHash("/Videos");
             });
 
             $doms.btnPublish = $doms.buttonContainer.find(".btn:nth-child(3)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', '發表宣言');
                 Main.loginFB('/Publish');
             });
 
             $doms.btnHistory = $doms.buttonContainer.find(".btn:nth-child(4)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', '宣言牆');
                 SceneHandler.toHash("/Entries");
             });
 
             $doms.btnRule = $doms.buttonContainer.find(".btn:nth-child(5)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', '活動辦法與獎項');
                 SceneHandler.toHash("/Rule");
             });
 
             $doms.btnOfficial = $doms.buttonContainer.find(".btn:nth-child(6)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', 'bossini 官網');
+                window.open('https://www.bossini.com.tw/', '_blank');
             });
 
             $doms.btnVip = $doms.buttonContainer.find(".btn:nth-child(7)").on(_CLICK_, function()
             {
                 self.close();
+                ga('send', 'event', '選單', '按鈕點擊', 'VIP 方案');
                 SceneHandler.toHash("/Vip");
             });
         },

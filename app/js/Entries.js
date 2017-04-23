@@ -91,6 +91,7 @@
 
         $doms.btnToPublish = $doms.container.find(".btn-to-publish").on(_CLICK_, function()
         {
+            ga('send', 'event', '宣言牆', '按鈕點擊', '我也要超越');
             Main.loginFB('/Publish');
         });
 
@@ -298,6 +299,8 @@
     function show(cb)
     {
         $("#scene-container").append($doms.container);
+
+        ga('send', 'pageview', '宣言牆');
 
         self.resize(true);
         $("#background").find(".cover").toggleClass('entries-mode', true);

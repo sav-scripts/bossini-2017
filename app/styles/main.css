@@ -449,6 +449,7 @@ div.disactivated {
   margin-top: 0px;
   background-image: url("../images/logo.png");
   background-size: auto;
+  cursor: pointer;
 }
 #menu .icon {
   position: absolute;
