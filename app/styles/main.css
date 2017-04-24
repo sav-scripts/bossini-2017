@@ -518,7 +518,7 @@ div.disactivated {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 150%;
   background-color: #000000;
   opacity: .45;
   transition: background-color 0.4s ease-out, opacity 0.4s ease-out;
@@ -2688,8 +2688,8 @@ div.disactivated {
 }
 #rule .basement .content-container .content {
   position: relative;
-  width: 736px;
-  height: 780px;
+  width: 740px;
+  height: 1800px;
   margin-top: 4px;
   margin-bottom: 4px;
   background-image: url("../images/rule-content.png");
@@ -3204,160 +3204,6 @@ div.disactivated {
     width: 100px;
     height: 100px;
     font-size: 100px;
-    left: 412%;
-    top: 219%;
-  }
-  #index .content .video-select .arrow-left {
-    position: absolute;
-    left: -32px;
-    top: 21px;
-    width: 25px;
-    height: 40px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-arrow-left.png");
-    background-size: auto;
-    cursor: pointer;
-  }
-  #index .content .video-select .arrow-left:active {
-    margin-left: -1px;
-  }
-  #index .content .video-select .arrow-right {
-    position: absolute;
-    left: 146px;
-    top: 21px;
-    width: 25px;
-    height: 40px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-arrow-right.png");
-    background-size: auto;
-    cursor: pointer;
-  }
-  #index .content .video-select .arrow-right:active {
-    margin-left: 1px;
-  }
-  #index .content .video-select .video-desc {
-    position: absolute;
-    left: 0;
-    top: 85px;
-    width: 136px;
-    font-family: '微軟正黑體', "Heiti TC", serif;
-    font-size: 14px;
-    color: white;
-    text-align: center;
-  }
-  #index .content .video-select .thumb-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 136px;
-    height: 77px;
-    background-color: white;
-    border: 1px solid white;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  #index .content .video-select .thumb-container .wrapper {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  #index .content .video-select .thumb-container .wrapper .thumb-1 {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-thumb-1.png");
-    background-size: auto;
-    background-size: cover;
-    z-index: 1;
-  }
-  #index .content .video-select .thumb-container .wrapper .thumb-2 {
-    position: absolute;
-    left: 136px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-thumb-2.png");
-    background-size: auto;
-    background-size: cover;
-    z-index: 1;
-  }
-  #index .content .video-select .thumb-container .wrapper .thumb-3 {
-    position: absolute;
-    left: 272px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-thumb-3.png");
-    background-size: auto;
-    background-size: cover;
-    z-index: 1;
-  }
-  #index .content .video-select .thumb-container .wrapper .thumb-4 {
-    position: absolute;
-    left: 408px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-thumb-4.png");
-    background-size: auto;
-    background-size: cover;
-    z-index: 1;
-  }
-  #index .content .video-select .thumb-container .wrapper .thumb-5 {
-    position: absolute;
-    left: 544px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-thumb-5.png");
-    background-size: auto;
-    background-size: cover;
-    z-index: 1;
-  }
-  #index .content .video-select .thumb-container .wrapper .thumb-6 {
-    position: absolute;
-    left: 680px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-thumb-6.png");
-    background-size: auto;
-    background-size: cover;
-    z-index: 1;
-  }
-  #index .content .video-select .thumb-container .video-play-icon {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 136px;
-    height: 77px;
-    margin-left: 0px;
-    margin-top: 0px;
-    background-image: url("../images/index-video-play-icon.png");
-    background-size: auto;
-    z-index: 2;
-  }
-  #index .content .video-select {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    font-size: 100px;
     left: -125%;
     top: 272%;
   }
@@ -3418,7 +3264,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-1.png");
+    background-image: url("../images/index-video-thumb-1.m.png");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3431,7 +3277,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-2.png");
+    background-image: url("../images/index-video-thumb-2.m.png");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3444,7 +3290,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-3.png");
+    background-image: url("../images/index-video-thumb-3.m.png");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3457,7 +3303,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-4.png");
+    background-image: url("../images/index-video-thumb-4.m.png");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3470,7 +3316,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-5.png");
+    background-image: url("../images/index-video-thumb-5.m.png");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3483,7 +3329,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-6.png");
+    background-image: url("../images/index-video-thumb-6.m.png");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3811,8 +3657,8 @@ div.disactivated {
     height: 720px;
   }
   #rule .basement .content-container .content {
-    width: 440px;
-    height: 1382px;
+    width: 475px;
+    height: 5704px;
     margin-top: 4px;
     margin-bottom: 4px;
     background-image: url("../images/rule-content.m.png");

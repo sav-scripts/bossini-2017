@@ -134,7 +134,11 @@
 
             ga('send', 'event', '首頁', '點擊影片縮圖', obj.title);
 
-            if(obj.id)
+            if(obj.link)
+            {
+                window.open(obj.link, '_blank');
+            }
+            else if(obj.id)
             {
                 Videos.setPlayingIndex(currentIndex);
                 SceneHandler.toHash("/Videos");

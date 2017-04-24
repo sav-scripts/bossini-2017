@@ -34,8 +34,8 @@
                         display: "iframe",
                         link: Utility.getPath(),
                         picture: _shareImageUrl,
-                        title: "feed title",
-                        description: 'feed description'
+                        title: "bossini［ 不停止，就是最好的超越。］",
+                        description: '不要停止，勇於向前，平凡中就能激起不平凡，今天的你 比昨天多了一點，現在比上一秒你多超越了一些， 不停止， 就是 最好的超越……寫下你的不停止宣言，就有機會獲得bossini好禮。'
                     },function(response)
                     {
                         //console.log(JSON.stringify(response));

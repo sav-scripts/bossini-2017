@@ -5,7 +5,7 @@
         {
             "1":
             {
-                'id': 'iU3nLmQ2HAM',
+                'id': 'PWRj1ub6AnI',
                 'title':'bossini官方影片'
             },
             "2":
@@ -26,12 +26,14 @@
             "5":
             {
                 'id': '0Ocxig6MGnA',
-                'title':'bossini 產品'
+                'title':'bossini 產品',
+                'link': 'https://www.bossini.com.tw/'
             },
             "6":
             {
                 'id': 'xvpogWs30mY',
-                'title':'bossini VIP方案'
+                'title':'bossini VIP方案',
+                'link': 'http://www.bossini.com.tw/zh_TW/VIP.html'
             }
         },
         _isInit = false,
@@ -126,41 +128,52 @@
 
         // Replace the 'ytplayer' element with an <iframe> and
         // YouTube player after the API code downloads.
-        var player;
+
 
 
         window.onYouTubePlayerAPIReady = function()
         {
-            player = new YT.Player('ytplayer', {
-
-                playerVars:
-                {
-                    'autoplay': 1,
-                    'controls': 0
-                },
-                events:
-                {
-                    onReady: function()
-                    {
-                        _isPlayerReady = true;
-                        _player = player;
-
-                        //console.log("on ready");
-
-
-                        if(_currentIndex)
-                        {
-                            playVideo(_currentIndex);
-                        }
-                    }
-                }
-            });
+            _isPlayerReady = true;
+            playVideo(_currentIndex);
         };
     }
-
     function playVideo(index)
     {
         if(!_isPlayerReady) return;
+
+        //alert(Modernizr.videoautoplay);
+
+        if(_videoDic[index].id == '')
+        {
+            alert('影片尚未開放，敬請期待');
+            return;
+        }
+
+        _currentIndex = index;
+
+        updateThumbs();
+
+        if(_player) _player.destroy();
+
+        //console.log("check: " + _currentIndex);
+
+        _player = new YT.Player('ytplayer', {
+
+            videoId: _videoDic[_currentIndex].id,
+
+            playerVars:
+            {
+                'autoplay': 1,
+                'controls': 0
+            }
+        });
+    }
+
+    function playVideo_old(index)
+    {
+        if(!_isPlayerReady) return;
+
+        //alert(Modernizr.videoautoplay);
 
         if(_videoDic[index].id == '')
         {
@@ -204,8 +217,16 @@
             $thumb.on(_CLICK_, function()
             {
                 ga('send', 'event', '影片', '影片選擇', dataObj.title);
-                if(_currentIndex == index) return;
-                playVideo(index);
+
+                if(dataObj.link)
+                {
+                    window.open(dataObj.link, '_blank');
+                }
+                else
+                {
+                    //if(_currentIndex == index) return;
+                    playVideo(index);
+                }
             });
 
         }
@@ -227,6 +248,8 @@
         var tl = new TimelineMax;
         tl.set($doms.container, {autoAlpha: 0});
         tl.to($doms.container, .4, {autoAlpha: 1});
+
+        if(_isPlayerReady) playVideo(_currentIndex);
     }
 
     function hide(cb)
@@ -235,8 +258,13 @@
         tl.to($doms.container, .4, {autoAlpha: 0});
         tl.add(function ()
         {
-            _isPlayerReady = false;
-            _player = null;
+            //_isPlayerReady = false;
+
+            if(_player)
+            {
+                _player.destroy();
+                _player = null;
+            }
             $doms.container.detach();
             cb.apply();
         });

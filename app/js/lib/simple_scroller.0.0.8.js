@@ -1,3 +1,12 @@
+/*
+    2017/04/24: add preventDefault for both container and scrollbar when using on touchstart,
+        this is for prevent parent scrolling when draging content or scroll bar
+
+        ** no longer need Hammer.js **
+
+ */
+
+
 // JavaScript Document
 (function(){
     "use strict";
@@ -254,70 +263,44 @@
 
             if(_withTouch)
             {
-                var hammer = new Hammer(_doms.container);
 
-                hammer.on("panstart", function(event)
+                _doms.container.addEventListener('touchstart', function(event)
                 {
                     event.preventDefault();
-                    //event.stopPropagation();
-                    mouseY = 0;
+
+                    mouseY = event.touches[0].screenY;
                 });
 
-                hammer.on("panmove", function(event)
+                _doms.container.addEventListener('touchmove', function(event)
                 {
                     event.preventDefault();
-                    //event.stopPropagation();
 
+                    var dy = event.touches[0].screenY - mouseY;
+                    mouseY = event.touches[0].screenY;
 
-
-                     var dy = event.deltaY - mouseY;
-                     mouseY = event.deltaY;
-
-                     updateProgress(_scrollArea.tProgress - dy/_scrollArea.height );
-
+                    updateProgress(_scrollArea.tProgress - dy/_scrollArea.height );
                 });
+
 
                 // scrollbar
-                var hammerBar = new Hammer(_doms.scrollbarContainer);
-                hammerBar.on("panstart", function(event)
+
+
+
+                _doms.scrollbarContainer.addEventListener('touchstart', function(event)
                 {
                     event.preventDefault();
-                    mouseY = 0;
+                    mouseY = event.touches[0].screenY;
                 });
-                hammerBar.on("panmove", function(event)
+
+                _doms.scrollbarContainer.addEventListener('touchmove', function(event)
                 {
                     event.preventDefault();
 
-                    var dy = -(event.deltaY - mouseY);
-                    mouseY = event.deltaY;
+                    var dy = -(event.touches[0].screenY - mouseY);
+                    mouseY = event.touches[0].screenY;
 
                     updateProgress(_scrollArea.tProgress - dy/_scrollArea.heightForScroll);
                 });
-
-
-
-                /*
-                if(!_noArrow)
-                {
-                    Hammer(_doms.btnDown).on("touch", function()
-                    {
-                        buttonDownPressing = true;
-                        scrollDown();
-                    }).on("release", function()
-                    {
-                        buttonDownPressing = false;
-                    });
-
-                    Hammer(_doms.btnUp).on("touch", function()
-                    {
-                        buttonUpPressing = true;
-                        scrollUp();
-                    }).on("release", function()
-                    {
-                        buttonUpPressing = false;
-                    });
-                }
-                */
             }
             else
             {
@@ -334,15 +317,15 @@
                 });
             }
 
-            $(_doms.scrollbarContainer).bind("mouseover", function(event)
-            {
-                $(_doms.scrollbar).toggleClass("hover", true);
-            });
-
-            $(_doms.scrollbarContainer).bind("mouseout", function(event)
-            {
-                $(_doms.scrollbar).toggleClass("hover", false);
-            });
+            //$(_doms.scrollbarContainer).bind("mouseover", function(event)
+            //{
+            //    $(_doms.scrollbar).toggleClass("hover", true);
+            //});
+            //
+            //$(_doms.scrollbarContainer).bind("mouseout", function(event)
+            //{
+            //    $(_doms.scrollbar).toggleClass("hover", false);
+            //});
 
             $(document).bind("mousewheel", function(event, delta)
             {
@@ -404,6 +387,9 @@
 
             $dom.on("mousedown", function(event)
             {
+                event.preventDefault();
+                event.stopPropagation();
+
                 var currentY = event.clientY;
 
                 isDragging = true;

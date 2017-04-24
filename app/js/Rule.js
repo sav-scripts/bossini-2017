@@ -51,13 +51,16 @@
 
                 var vp = Main.viewport;
 
-                if(vp.changed)
+                if(isFromShow || vp.changed)
                 {
                     //var scrollBarSize = vp.index == 0? 101: 101;
                     var scrollBarSize = 126;
 
-                    var containerHeight = $doms.contentContainer.height();
+                    //var containerHeight = parseInt($doms.contentContainer.css('height'));
+                    var containerHeight = vp.index == 0? 720: 400;
                     //var $ssContainer = $(_ss.doms.container);
+
+                    //console.log(containerHeight);
 
                     //var offsetX = vp.index == 0? 540: 769;
                     var offsetX = parseInt($doms.scrollbase.css('left')) - parseInt($doms.contentContainer.css('left'));
@@ -79,7 +82,13 @@
         $doms.contentContainer = $doms.container.find(".content-container");
         $doms.scrollbase = $doms.container.find(".scroll-base");
 
-        _ss = new SimpleScroller($doms.contentContainer[0], null, 0, Modernizr.touchevents).update(true);
+        var useTouch = Modernizr.touchevents;
+        var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+        if(isFirefox) useTouch = false;
+
+        _ss = new SimpleScroller($doms.contentContainer[0], null, 0, useTouch).update(true);
+        //_ss = new SimpleScroller($doms.contentContainer[0], null, 126, Modernizr.touchevents).update(true);
 
         $doms.container.detach();
     }

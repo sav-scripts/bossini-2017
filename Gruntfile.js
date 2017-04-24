@@ -38,7 +38,6 @@ module.exports = function(grunt)
                             '*.html',
                             'js/lib/modernizr-custom.js',
                             'js/lib/SquareLoading.1.0.1.js',
-                            'js/lib/hammer.min.js',
                             'js/lib/jquery.1.11.3.min.js',
                             'misc/*.*'
                         ],
