@@ -30,7 +30,7 @@
             $doms.logo = $doms.container.find('.logo').on(_CLICK_, function()
             {
                 ga('send', 'event', '選單', '按鈕點擊', 'logo');
-                window.open('https://www.bossini.com.tw/', '_blank');
+                SceneHandler.toHash("/Index");
             });
 
             $doms.btnIndex = $doms.buttonContainer.find(".btn:nth-child(1)").on(_CLICK_, function()

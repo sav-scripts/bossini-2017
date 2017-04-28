@@ -415,6 +415,21 @@ div{
             &:active{
                 margin-top: 1px;
             }
+
+            @keyframes changewidth {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: .7;
+                }
+            }
+
+            animation-duration: 0.3s;
+            animation-name: changewidth;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
         }
 
         .video-select{

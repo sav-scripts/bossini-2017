@@ -6,11 +6,11 @@
             "1":
             {
                 'id': 'PWRj1ub6AnI',
-                'title':'bossini官方影片'
+                'title':'bossini形象影片'
             },
             "2":
             {
-                'id': 'eUsJpDB9QFA',
+                'id': '9kiXn5SBDoI',
                 'title':'陳庭妮 篇'
             },
             "3":
@@ -25,14 +25,14 @@
             },
             "5":
             {
-                'id': '0Ocxig6MGnA',
-                'title':'bossini 產品',
+                'id': '',
+                'title':'為你的衣櫃添新衣',
                 'link': 'https://www.bossini.com.tw/'
             },
             "6":
             {
-                'id': 'xvpogWs30mY',
-                'title':'bossini VIP方案',
+                'id': '',
+                'title':'加入VIP 回饋不停止',
                 'link': 'http://www.bossini.com.tw/zh_TW/VIP.html'
             }
         },
@@ -141,8 +141,6 @@
     {
         if(!_isPlayerReady) return;
 
-        //alert(Modernizr.videoautoplay);
-
         if(_videoDic[index].id == '')
         {
             alert('影片尚未開放，敬請期待');
@@ -172,8 +170,6 @@
     function playVideo_old(index)
     {
         if(!_isPlayerReady) return;
-
-        //alert(Modernizr.videoautoplay);
 
         if(_videoDic[index].id == '')
         {

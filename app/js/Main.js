@@ -6,7 +6,7 @@
         testmode: false,
         useFakeData: false,
 
-        version: 6,
+        version: 7,
 
         localSettings:
         {

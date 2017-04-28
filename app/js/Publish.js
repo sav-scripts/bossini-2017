@@ -337,7 +337,11 @@
             $(_workingCanvas).detach();
         }
 
+        /*
         _workingCanvas = CanvasUtils.imageToCanvas(image, _imageSettings.rawWidth, _imageSettings.rawHeight);
+        */
+
+        _workingCanvas = image;
         _workingCanvas.className = 'raw-canvas';
 
         $doms.workContainer.toggleClass("visible-mode", true);

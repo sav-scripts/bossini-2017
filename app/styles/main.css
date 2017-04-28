@@ -1555,9 +1555,21 @@ div.disactivated {
   background-image: url("../images/index-btn-start.png");
   background-size: cover;
   cursor: pointer;
+  animation-duration: 0.3s;
+  animation-name: changewidth;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 #index .content .btn-start:active {
   margin-top: 1px;
+}
+@keyframes changewidth {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .7;
+  }
 }
 #index .content .video-select {
   -webkit-touch-callout: none;
