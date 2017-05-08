@@ -82,6 +82,8 @@
                     //    alert('orientation = ' + data.exif.get('Orientation'));
                     //}
 
+
+
                     self._image = img;
                     if(cb) cb.call(null, self._image);
                 },
@@ -90,7 +92,8 @@
                     maxWidth: 600,
                     maxHeight: 600,
                     cover: true,
-                    crop: true
+                    crop: true,
+                    crossOrigin: !isLocal
                 }
             );
         },

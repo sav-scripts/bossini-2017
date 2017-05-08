@@ -504,7 +504,7 @@ div{
                         .thumb-@{index}{
 
                             @left: @thumb-width * (@index - 1);
-                            .abs-div-2(none, @left, 0, @thumb-width, @thumb-height, "index-video-thumb-@{index}.png");
+                            .abs-div-2(none, @left, 0, @thumb-width, @thumb-height, "index-video-thumb-@{index}.png?v=1");
                             background-size: cover;
                             z-index: 1;
                         }
@@ -1155,7 +1155,7 @@ div{
 
                 position: relative;
                 width: 740px;
-                height: 1800px;
+                height: 1861px;
 
                 margin-top: 4px;
                 margin-bottom: 4px;
@@ -1273,7 +1273,7 @@ div{
             .my-mixin(@index;)
             {
                 &:nth-child(@{index}){
-                    .image-bg('index-video-thumb-@{index}.png');
+                    .image-bg('index-video-thumb-@{index}.png?v=1');
                 }
             }
         }

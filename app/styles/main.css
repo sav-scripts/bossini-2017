@@ -1649,7 +1649,7 @@ div.disactivated {
   height: 77px;
   margin-left: 0px;
   margin-top: 0px;
-  background-image: url("../images/index-video-thumb-1.png");
+  background-image: url("../images/index-video-thumb-1.png?v=1");
   background-size: auto;
   background-size: cover;
   z-index: 1;
@@ -1662,7 +1662,7 @@ div.disactivated {
   height: 77px;
   margin-left: 0px;
   margin-top: 0px;
-  background-image: url("../images/index-video-thumb-2.png");
+  background-image: url("../images/index-video-thumb-2.png?v=1");
   background-size: auto;
   background-size: cover;
   z-index: 1;
@@ -1675,7 +1675,7 @@ div.disactivated {
   height: 77px;
   margin-left: 0px;
   margin-top: 0px;
-  background-image: url("../images/index-video-thumb-3.png");
+  background-image: url("../images/index-video-thumb-3.png?v=1");
   background-size: auto;
   background-size: cover;
   z-index: 1;
@@ -1688,7 +1688,7 @@ div.disactivated {
   height: 77px;
   margin-left: 0px;
   margin-top: 0px;
-  background-image: url("../images/index-video-thumb-4.png");
+  background-image: url("../images/index-video-thumb-4.png?v=1");
   background-size: auto;
   background-size: cover;
   z-index: 1;
@@ -1701,7 +1701,7 @@ div.disactivated {
   height: 77px;
   margin-left: 0px;
   margin-top: 0px;
-  background-image: url("../images/index-video-thumb-5.png");
+  background-image: url("../images/index-video-thumb-5.png?v=1");
   background-size: auto;
   background-size: cover;
   z-index: 1;
@@ -1714,7 +1714,7 @@ div.disactivated {
   height: 77px;
   margin-left: 0px;
   margin-top: 0px;
-  background-image: url("../images/index-video-thumb-6.png");
+  background-image: url("../images/index-video-thumb-6.png?v=1");
   background-size: auto;
   background-size: cover;
   z-index: 1;
@@ -2701,7 +2701,7 @@ div.disactivated {
 #rule .basement .content-container .content {
   position: relative;
   width: 740px;
-  height: 1800px;
+  height: 1861px;
   margin-top: 4px;
   margin-bottom: 4px;
   background-image: url("../images/rule-content.png");
@@ -2843,27 +2843,27 @@ div.disactivated {
   color: #4db847;
 }
 #videos .thumb-container .thumb:nth-child(1) {
-  background-image: url("../images/index-video-thumb-1.png");
+  background-image: url("../images/index-video-thumb-1.png?v=1");
   background-size: auto;
 }
 #videos .thumb-container .thumb:nth-child(2) {
-  background-image: url("../images/index-video-thumb-2.png");
+  background-image: url("../images/index-video-thumb-2.png?v=1");
   background-size: auto;
 }
 #videos .thumb-container .thumb:nth-child(3) {
-  background-image: url("../images/index-video-thumb-3.png");
+  background-image: url("../images/index-video-thumb-3.png?v=1");
   background-size: auto;
 }
 #videos .thumb-container .thumb:nth-child(4) {
-  background-image: url("../images/index-video-thumb-4.png");
+  background-image: url("../images/index-video-thumb-4.png?v=1");
   background-size: auto;
 }
 #videos .thumb-container .thumb:nth-child(5) {
-  background-image: url("../images/index-video-thumb-5.png");
+  background-image: url("../images/index-video-thumb-5.png?v=1");
   background-size: auto;
 }
 #videos .thumb-container .thumb:nth-child(6) {
-  background-image: url("../images/index-video-thumb-6.png");
+  background-image: url("../images/index-video-thumb-6.png?v=1");
   background-size: auto;
 }
 @media (max-width: 640px) {
@@ -3276,7 +3276,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-1.m.png");
+    background-image: url("../images/index-video-thumb-1.m.png?v=1");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3289,7 +3289,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-2.m.png");
+    background-image: url("../images/index-video-thumb-2.m.png?v=1");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3302,7 +3302,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-3.m.png");
+    background-image: url("../images/index-video-thumb-3.m.png?v=1");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3315,7 +3315,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-4.m.png");
+    background-image: url("../images/index-video-thumb-4.m.png?v=1");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3328,7 +3328,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-5.m.png");
+    background-image: url("../images/index-video-thumb-5.m.png?v=1");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3341,7 +3341,7 @@ div.disactivated {
     height: 140px;
     margin-left: 0px;
     margin-top: 0px;
-    background-image: url("../images/index-video-thumb-6.m.png");
+    background-image: url("../images/index-video-thumb-6.m.png?v=1");
     background-size: auto;
     background-size: cover;
     z-index: 1;
@@ -3670,7 +3670,7 @@ div.disactivated {
   }
   #rule .basement .content-container .content {
     width: 475px;
-    height: 5704px;
+    height: 5800px;
     margin-top: 4px;
     margin-bottom: 4px;
     background-image: url("../images/rule-content.m.png");
@@ -3849,27 +3849,27 @@ div.disactivated {
     color: #4db847;
   }
   #videos .thumb-container .thumb:nth-child(1) {
-    background-image: url("../images/index-video-thumb-1.png");
+    background-image: url("../images/index-video-thumb-1.png?v=1");
     background-size: auto;
   }
   #videos .thumb-container .thumb:nth-child(2) {
-    background-image: url("../images/index-video-thumb-2.png");
+    background-image: url("../images/index-video-thumb-2.png?v=1");
     background-size: auto;
   }
   #videos .thumb-container .thumb:nth-child(3) {
-    background-image: url("../images/index-video-thumb-3.png");
+    background-image: url("../images/index-video-thumb-3.png?v=1");
     background-size: auto;
   }
   #videos .thumb-container .thumb:nth-child(4) {
-    background-image: url("../images/index-video-thumb-4.png");
+    background-image: url("../images/index-video-thumb-4.png?v=1");
     background-size: auto;
   }
   #videos .thumb-container .thumb:nth-child(5) {
-    background-image: url("../images/index-video-thumb-5.png");
+    background-image: url("../images/index-video-thumb-5.png?v=1");
     background-size: auto;
   }
   #videos .thumb-container .thumb:nth-child(6) {
-    background-image: url("../images/index-video-thumb-6.png");
+    background-image: url("../images/index-video-thumb-6.png?v=1");
     background-size: auto;
   }
   #videos .thumb-container .thumb:nth-child(5) {

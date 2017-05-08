@@ -291,7 +291,7 @@
                             .thumb-@{index}{
 
                                 @left: @thumb-width * (@index - 1);
-                                .abs-div-2(none, @left, 0, @thumb-width, @thumb-height, "index-video-thumb-@{index}.m.png");
+                                .abs-div-2(none, @left, 0, @thumb-width, @thumb-height, "index-video-thumb-@{index}.m.png?v=1");
                                 background-size: cover;
                                 z-index: 1;
                             }
@@ -628,7 +628,7 @@
                 .content{
 
                     width: 475px;
-                    height: 5704px;
+                    height: 5800px;
 
                     margin-top: 4px;
                     margin-bottom: 4px;
@@ -823,7 +823,7 @@
                 .my-mixin(@index;)
                 {
                     &:nth-child(@{index}){
-                        .image-bg('index-video-thumb-@{index}.png');
+                        .image-bg('index-video-thumb-@{index}.png?v=1');
                     }
                 }
             }

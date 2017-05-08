@@ -44,9 +44,11 @@
 
                 SceneHandler.loadTemplate(null, templates, function loadComplete()
                 {
-                    build(templates);
-                    _isInit = true;
-                    cb.apply(null);
+                    build(templates, function()
+                    {
+                        _isInit = true;
+                        cb.apply(null);
+                    });
                 }, 0);
             }
         },
@@ -102,7 +104,7 @@
         }
     };
 
-    function build(templates)
+    function build(templates, cb)
     {
         $("#invisible-container").append(templates[0].dom);
         $doms.container = $("#publish");
@@ -156,13 +158,36 @@
 
         if(FBHelper._uid)
         {
+            Loading.progress('載入預設圖片中').show();
+
+            var oldFirstImage = _firstImageSrc;
             _firstImageSrc = 'http://graph.facebook.com/'+FBHelper._uid+'/picture?width=600&height=600';
-            _imageInput.loadImg(_firstImageSrc, resetWorkingImage);
+            _imageInput.loadImg(_firstImageSrc, function(img)
+            {
+                if(img.type == 'error')
+                {
+                    ga('send', 'event', '發表宣言 - 上傳與填字', '讀取大頭照失敗', _firstImageSrc);
+                    _imageInput.loadImg(oldFirstImage, function(img)
+                    {
+                        resetWorkingImage(img);
+                        cb.call();
+                    });
+                }
+                else
+                {
+                    resetWorkingImage(img);
+                    cb.call();
+                }
+            });
         }
         else if(Main.testmode)
         {
             //console.log('using sample as default working image');
-            _imageInput.loadImg(_firstImageSrc, resetWorkingImage);
+            _imageInput.loadImg(_firstImageSrc, function(img)
+            {
+                resetWorkingImage(img);
+                cb.call();
+            });
         }
         else
         {

@@ -6,7 +6,7 @@
         testmode: false,
         useFakeData: false,
 
-        version: 7,
+        version: 8,
 
         localSettings:
         {
@@ -116,7 +116,12 @@
                                 SceneHandler.toHash(self.defaultHash);
                                 return null;
                             }
-
+                            else if(!Modernizr.canvas)
+                            {
+                                alert('您的瀏覽器不支援使用canvas, 請使用較新的瀏覽器');
+                                SceneHandler.toHash(self.defaultHash);
+                                return null;
+                            }
                         }
 
                         return hashName;
